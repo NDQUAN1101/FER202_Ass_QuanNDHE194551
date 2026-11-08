@@ -1,6 +1,3 @@
-# Tài Khoản Test Đăng Nhập (Hỗ Trợ Chấm Điểm)
-
-Tại trang `/login`, hệ thống có sẵn các tài khoản mẫu (hoặc bấm nút **1-Click Đăng Nhập Nhanh**) để đăng nhập và kiểm tra các chức năng phân quyền:
 
 * **Tài khoản Quản Trị Viên (Admin):**
   * Email: `admin@dinehub.com`
