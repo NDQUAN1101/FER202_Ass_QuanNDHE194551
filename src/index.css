@@ -1,0 +1,235 @@
+/* Global CSS & Design System for DineHub */
+:root {
+  --primary-color: #e28722;
+  --primary-hover: #cf7412;
+  --primary-light: rgba(226, 135, 34, 0.12);
+  --primary-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  --secondary-color: #1e293b;
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-hover: #26354a;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #0b0f17;
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0f17;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+/* Glassmorphism & Cards */
+.glass-panel {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+}
+
+.food-card {
+  background: #182232;
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.food-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(226, 135, 34, 0.15);
+  border-color: rgba(226, 135, 34, 0.3);
+}
+
+.food-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 220px;
+}
+
+.food-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.food-card:hover .food-img-wrapper img {
+  transform: scale(1.08);
+}
+
+/* Buttons */
+.btn-primary-custom {
+  background: var(--primary-gradient);
+  color: #ffffff !important;
+  font-weight: 600;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.btn-primary-custom:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(217, 119, 6, 0.5);
+  filter: brightness(1.08);
+}
+
+.btn-outline-custom {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-weight: 500;
+  padding: 9px 20px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-outline-custom:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  background: var(--primary-light);
+}
+
+/* Badges */
+.badge-gold {
+  background: rgba(226, 135, 34, 0.15);
+  color: #f59e0b;
+  border: 1px solid rgba(226, 135, 34, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.badge-green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.badge-gray {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* Navigation bar */
+.navbar-custom {
+  background: rgba(11, 15, 23, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Admin Dashboard Specific */
+.admin-sidebar {
+  background: #111827;
+  border-right: 1px solid var(--border-color);
+  min-height: calc(100vh - 65px);
+}
+
+.admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px;
+  border-radius: 10px;
+  color: #94a3b8;
+  font-weight: 500;
+  margin-bottom: 6px;
+  transition: all 0.2s ease;
+}
+
+.admin-nav-item:hover, .admin-nav-item.active {
+  background: rgba(226, 135, 34, 0.12);
+  color: #f59e0b;
+}
+
+/* Form inputs */
+.form-control-custom, .form-select-custom {
+  background-color: #182232 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #f8fafc !important;
+  border-radius: 10px !important;
+  padding: 11px 14px !important;
+}
+
+.form-control-custom:focus, .form-select-custom:focus {
+  background-color: #1e2a3c !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 3px rgba(226, 135, 34, 0.2) !important;
+}
+
+.form-control-custom::placeholder {
+  color: #64748b !important;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}

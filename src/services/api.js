@@ -1,0 +1,374 @@
+import axios from 'axios';
+
+// Default json-server port for FER202 is 9999
+export const API_BASE_URL = 'http://localhost:9999';
+
+const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  timeout: 5000,
+});
+
+// Fallback initial data in case json-server is not running yet
+export const FALLBACK_DATA = {
+  categories: [
+    { id: 'cat-1', name: 'Khai Vị (Appetizers)', slug: 'khai-vi' },
+    { id: 'cat-2', name: 'Món Chính (Main Courses)', slug: 'mon-chinh' },
+    { id: 'cat-3', name: 'Nướng & BBQ (Grill & BBQ)', slug: 'nuong-bbq' },
+    { id: 'cat-4', name: 'Tráng Miệng (Desserts)', slug: 'trang-mieng' },
+    { id: 'cat-5', name: 'Đồ Uống & Rượu (Beverages)', slug: 'do-uong' }
+  ],
+  tables: [
+    { id: 'tbl-1', code: 'Bàn S01', area: 'Tầng 1 - Sân vườn thoáng đãng', capacity: 2, status: 'Available' },
+    { id: 'tbl-2', code: 'Bàn S02', area: 'Tầng 1 - Sân vườn thoáng đãng', capacity: 4, status: 'Available' },
+    { id: 'tbl-3', code: 'Bàn S03', area: 'Tầng 1 - Sân vườn thoáng đãng', capacity: 6, status: 'Reserved' },
+    { id: 'tbl-4', code: 'Bàn M01', area: 'Tầng 2 - Đại sảnh máy lạnh ấm cúng', capacity: 4, status: 'Available' },
+    { id: 'tbl-5', code: 'Bàn M02', area: 'Tầng 2 - Đại sảnh máy lạnh ấm cúng', capacity: 6, status: 'Available' },
+    { id: 'tbl-6', code: 'Bàn M03', area: 'Tầng 2 - Đại sảnh máy lạnh ấm cúng', capacity: 8, status: 'Reserved' },
+    { id: 'tbl-7', code: 'Bàn VIP01', area: 'Tầng 3 - Phòng VIP Hoàng Gia (Riêng tư)', capacity: 10, status: 'Available' },
+    { id: 'tbl-8', code: 'Bàn VIP02', area: 'Tầng 3 - Phòng VIP Panorama (View triệu đô)', capacity: 12, status: 'Available' }
+  ],
+  foods: [
+    {
+      id: 'food-1',
+      name: 'Bò Wagyu A5 Nướng Đá Nóng',
+      categoryId: 'cat-3',
+      price: 890000,
+      originalPrice: 990000,
+      image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=800&auto=format&fit=crop&q=80',
+      description: 'Thịt bò Wagyu vân mỡ cẩm thạch tuyệt hảo, nướng trên đá nham thạch tự nhiên giữ trọn độ mọng ngọt ngất ngây.',
+      rating: 4.9,
+      reviewCount: 86,
+      isSpecial: true,
+      isVegetarian: false,
+      preparationTime: 25,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-2',
+      name: 'Cá Hồi Na-uy Áp Chảo Sốt Chanh Leo',
+      categoryId: 'cat-2',
+      price: 380000,
+      originalPrice: 420000,
+      image: 'https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=800&auto=format&fit=crop&q=80',
+      description: 'Phi lê cá hồi tươi thượng hạng, da giòn thịt mềm, phủ sốt chanh leo chua thanh kích thích mọi giác quan.',
+      rating: 4.8,
+      reviewCount: 64,
+      isSpecial: true,
+      isVegetarian: false,
+      preparationTime: 20,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-3',
+      name: 'Súp Kem Nấm Truffle Thượng Hạng',
+      categoryId: 'cat-1',
+      price: 160000,
+      originalPrice: 180000,
+      image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=800&auto=format&fit=crop&q=80',
+      description: 'Súp kem béo ngậy nấu từ nấm mỡ, nấm đùi gà và dầu nấm Truffle đen quý hiếm từ Ý, kèm bánh mì bơ tỏi.',
+      rating: 4.7,
+      reviewCount: 52,
+      isSpecial: false,
+      isVegetarian: true,
+      preparationTime: 15,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-4',
+      name: 'Salad Ức Ngỗng Xông Khói Sốt Dâu Tây',
+      categoryId: 'cat-1',
+      price: 195000,
+      originalPrice: 195000,
+      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop&q=80',
+      description: 'Rau củ hữu cơ Đà Lạt tươi giòn kết hợp ức ngỗng xông khói đậm đà, phô mai Parmesan và sốt dâu tây chua ngọt.',
+      rating: 4.6,
+      reviewCount: 41,
+      isSpecial: false,
+      isVegetarian: false,
+      preparationTime: 12,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-5',
+      name: 'Sườn Cừu Úc Nướng Hương Thảo',
+      categoryId: 'cat-3',
+      price: 560000,
+      originalPrice: 620000,
+      image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=800&auto=format&fit=crop&q=80',
+      description: 'Sườn cừu non tẩm ướp lá hương thảo, tỏi nướng và sốt rượu vang đỏ Bordeaux, ăn kèm khoai tây nghiền truffle.',
+      rating: 4.9,
+      reviewCount: 73,
+      isSpecial: true,
+      isVegetarian: false,
+      preparationTime: 30,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-6',
+      name: 'Mì Ý Tôm Hùm Sốt Cà Chua Bisque',
+      categoryId: 'cat-2',
+      price: 450000,
+      originalPrice: 480000,
+      image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80',
+      description: 'Mì Spaghetti Al Dente kết hợp nửa con tôm hùm tươi sống và sốt kem cà chua cô đặc từ vỏ hải sản thượng hạng.',
+      rating: 4.8,
+      reviewCount: 59,
+      isSpecial: true,
+      isVegetarian: false,
+      preparationTime: 25,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-7',
+      name: 'Pizza Phô Mai 4 Vị (Quattro Formaggi)',
+      categoryId: 'cat-2',
+      price: 270000,
+      originalPrice: 270000,
+      image: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800&auto=format&fit=crop&q=80',
+      description: 'Sự kết hợp hoàn hảo của 4 loại phô mai hảo hạng: Mozzarella, Gorgonzola, Parmesan và Ricotta, nướng củi giòn rụm.',
+      rating: 4.7,
+      reviewCount: 88,
+      isSpecial: false,
+      isVegetarian: true,
+      preparationTime: 18,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-8',
+      name: 'Bánh Tiramisu Truyền Thống Ý',
+      categoryId: 'cat-4',
+      price: 115000,
+      originalPrice: 115000,
+      image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&auto=format&fit=crop&q=80',
+      description: 'Bánh quy Savoiardi nhúng cà phê Espresso thơm lừng, xen kẽ lớp kem trứng Mascarpone mịn màng phủ bột cacao Bỉ.',
+      rating: 4.9,
+      reviewCount: 110,
+      isSpecial: true,
+      isVegetarian: true,
+      preparationTime: 10,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-9',
+      name: 'Bánh Lava Chocolate Trái Tim Tan Chảy',
+      categoryId: 'cat-4',
+      price: 125000,
+      originalPrice: 140000,
+      image: 'https://images.unsplash.com/photo-1606313564200-e75d5e30476c?w=800&auto=format&fit=crop&q=80',
+      description: 'Bánh xốp sô cô la nóng với nhân sô cô la chảy ấm áp, ăn kèm 1 viên kem vani Bourbon mát lạnh tương phản tuyệt vời.',
+      rating: 4.8,
+      reviewCount: 67,
+      isSpecial: false,
+      isVegetarian: true,
+      preparationTime: 15,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-10',
+      name: 'Rượu Vang Đỏ Chateau Margaux (Ly)',
+      categoryId: 'cat-5',
+      price: 280000,
+      originalPrice: 280000,
+      image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=800&auto=format&fit=crop&q=80',
+      description: 'Hương thơm nồng nàn của quả mọng đen, gỗ sồi lâu năm và vani, hậu vị sâu lắng và tannin mượt mà.',
+      rating: 4.9,
+      reviewCount: 35,
+      isSpecial: true,
+      isVegetarian: true,
+      preparationTime: 5,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-11',
+      name: 'Cocktail Passion Fruit Mojito',
+      categoryId: 'cat-5',
+      price: 135000,
+      originalPrice: 135000,
+      image: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&auto=format&fit=crop&q=80',
+      description: 'Sự pha trộn sảng khoái giữa rượu Rum trắng, chanh tươi, lá bạc hà giã nhuyễn và siro chanh leo ngọt dịu.',
+      rating: 4.7,
+      reviewCount: 49,
+      isSpecial: false,
+      isVegetarian: true,
+      preparationTime: 8,
+      status: 'Còn hàng'
+    },
+    {
+      id: 'food-12',
+      name: 'Măng Tây Nướng Phủ Phô Mai Đút Lò',
+      categoryId: 'cat-1',
+      price: 145000,
+      originalPrice: 145000,
+      image: 'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=800&auto=format&fit=crop&q=80',
+      description: 'Măng tây xanh tươi tuyển chọn cuộn bơ tỏi và nướng xém cạnh cùng phô mai Mozzarella chảy.',
+      rating: 4.5,
+      reviewCount: 28,
+      isSpecial: false,
+      isVegetarian: true,
+      preparationTime: 12,
+      status: 'Hết món'
+    }
+  ],
+  reservations: [
+    {
+      id: 'DH-20261016-01',
+      customerName: 'Nguyễn Đình Quân',
+      phone: '0987654321',
+      email: 'quanndhe194551@fpt.edu.vn',
+      date: '2026-10-18',
+      timeSlot: '19:00',
+      guestsCount: 4,
+      tableId: 'tbl-2',
+      specialRequest: 'Kỷ niệm sinh nhật, chuẩn bị bàn gần cửa sổ và nến ấm cúng.',
+      orderItems: [
+        { foodId: 'food-1', foodName: 'Bò Wagyu A5 Nướng Đá Nóng', price: 890000, quantity: 2, total: 1780000 },
+        { foodId: 'food-8', foodName: 'Bánh Tiramisu Truyền Thống Ý', price: 115000, quantity: 2, total: 230000 }
+      ],
+      totalAmount: 2010000,
+      status: 'Confirmed',
+      createdAt: '2026-10-15T14:20:00.000Z'
+    },
+    {
+      id: 'DH-20261016-02',
+      customerName: 'Trần Thị Thảo',
+      phone: '0912345678',
+      email: 'thaott@gmail.com',
+      date: '2026-10-19',
+      timeSlot: '18:30',
+      guestsCount: 2,
+      tableId: 'tbl-1',
+      specialRequest: 'Bàn cặp đôi lãng mạn.',
+      orderItems: [
+        { foodId: 'food-2', foodName: 'Cá Hồi Na-uy Áp Chảo Sốt Chanh Leo', price: 380000, quantity: 2, total: 760000 },
+        { foodId: 'food-10', foodName: 'Rượu Vang Đỏ Chateau Margaux (Ly)', price: 280000, quantity: 2, total: 560000 }
+      ],
+      totalAmount: 1320000,
+      status: 'Pending',
+      createdAt: '2026-10-16T08:15:00.000Z'
+    }
+  ]
+};
+
+// API Services
+export const foodApi = {
+  getAll: async () => {
+    try {
+      const res = await apiClient.get('/foods');
+      return res.data;
+    } catch {
+      return FALLBACK_DATA.foods;
+    }
+  },
+  getById: async (id) => {
+    try {
+      const res = await apiClient.get(`/foods/${id}`);
+      return res.data;
+    } catch {
+      return FALLBACK_DATA.foods.find(f => String(f.id) === String(id)) || null;
+    }
+  },
+  create: async (foodData) => {
+    try {
+      const res = await apiClient.post('/foods', foodData);
+      return res.data;
+    } catch {
+      // Local fallback
+      const newFood = { ...foodData, id: 'food-' + Date.now() };
+      return newFood;
+    }
+  },
+  update: async (id, foodData) => {
+    try {
+      const res = await apiClient.put(`/foods/${id}`, foodData);
+      return res.data;
+    } catch {
+      return { ...foodData, id };
+    }
+  },
+  delete: async (id) => {
+    try {
+      await apiClient.delete(`/foods/${id}`);
+      return true;
+    } catch {
+      return true;
+    }
+  }
+};
+
+export const categoryApi = {
+  getAll: async () => {
+    try {
+      const res = await apiClient.get('/categories');
+      return res.data;
+    } catch {
+      return FALLBACK_DATA.categories;
+    }
+  }
+};
+
+export const tableApi = {
+  getAll: async () => {
+    try {
+      const res = await apiClient.get('/tables');
+      return res.data;
+    } catch {
+      return FALLBACK_DATA.tables;
+    }
+  },
+  updateStatus: async (id, status) => {
+    try {
+      const res = await apiClient.patch(`/tables/${id}`, { status });
+      return res.data;
+    } catch {
+      return { id, status };
+    }
+  }
+};
+
+export const reservationApi = {
+  getAll: async () => {
+    try {
+      const res = await apiClient.get('/reservations');
+      return res.data;
+    } catch {
+      return FALLBACK_DATA.reservations;
+    }
+  },
+  getByIdOrPhone: async (query) => {
+    try {
+      const res = await apiClient.get('/reservations');
+      const q = query.trim().toLowerCase();
+      return res.data.filter(r => 
+        r.id.toLowerCase().includes(q) || 
+        r.phone.includes(q)
+      );
+    } catch {
+      const q = query.trim().toLowerCase();
+      return FALLBACK_DATA.reservations.filter(r => 
+        r.id.toLowerCase().includes(q) || 
+        r.phone.includes(q)
+      );
+    }
+  },
+  create: async (data) => {
+    try {
+      const res = await apiClient.post('/reservations', data);
+      return res.data;
+    } catch {
+      return data;
+    }
+  },
+  updateStatus: async (id, status) => {
+    try {
+      const res = await apiClient.patch(`/reservations/${id}`, { status });
+      return res.data;
+    } catch {
+      return { id, status };
+    }
+  }
+};
+
+export default apiClient;
