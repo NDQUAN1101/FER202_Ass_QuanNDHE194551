@@ -213,8 +213,8 @@ const Booking = () => {
                   style={{
                     width: '42px',
                     height: '42px',
-                    background: step >= 1 ? 'var(--primary-gradient)' : '#1e293b',
-                    border: '3px solid #0b0f17',
+                    background: step >= 1 ? 'var(--primary-gradient)' : '#e2e8f0',
+                    border: '3px solid #ffffff', shadow: '0 2px 8px rgba(0,0,0,0.06)',
                     boxShadow: step >= 1 ? '0 0 15px rgba(226,135,34,0.5)' : 'none',
                   }}
                 >
@@ -236,8 +236,8 @@ const Booking = () => {
                   style={{
                     width: '42px',
                     height: '42px',
-                    background: step >= 2 ? 'var(--primary-gradient)' : '#1e293b',
-                    border: '3px solid #0b0f17',
+                    background: step >= 2 ? 'var(--primary-gradient)' : '#e2e8f0',
+                    border: '3px solid #ffffff', shadow: '0 2px 8px rgba(0,0,0,0.06)',
                     boxShadow: step >= 2 ? '0 0 15px rgba(226,135,34,0.5)' : 'none',
                   }}
                 >
@@ -255,8 +255,8 @@ const Booking = () => {
                   style={{
                     width: '42px',
                     height: '42px',
-                    background: step === 3 ? 'var(--primary-gradient)' : '#1e293b',
-                    border: '3px solid #0b0f17',
+                    background: step === 3 ? 'var(--primary-gradient)' : '#e2e8f0',
+                    border: '3px solid #ffffff', shadow: '0 2px 8px rgba(0,0,0,0.06)',
                     boxShadow: step === 3 ? '0 0 15px rgba(226,135,34,0.5)' : 'none',
                   }}
                 >
@@ -389,8 +389,8 @@ const Booking = () => {
                                 : 'border-light-subtle border-opacity-25'
                             }`}
                             style={{
-                              backgroundColor: isSelected ? '#243247' : '#141c28',
-                              border: isSelected ? '2px solid var(--primary-color)' : '1px solid var(--border-color)',
+                              backgroundColor: isSelected ? '#fffbeb' : (isAvailable ? '#ffffff' : '#f8fafc'),
+                              border: isSelected ? '2px solid var(--primary-color)' : (isAvailable ? '1px solid #e2e8f0' : '1px dashed #cbd5e1'),
                               cursor: isAvailable ? 'pointer' : 'not-allowed',
                               opacity: isAvailable ? 1 : 0.5,
                             }}
@@ -404,7 +404,7 @@ const Booking = () => {
                               )}
                             </div>
                             <div className="text-muted small mb-2">{table.area}</div>
-                            <div className="d-flex align-items-center gap-1 text-light small">
+                            <div className="d-flex align-items-center gap-1 text-secondary small fw-medium">
                               <Users size={14} className="text-warning" />
                               <span>Sức chứa: Tối đa {table.capacity} khách</span>
                             </div>
@@ -454,7 +454,7 @@ const Booking = () => {
                       <div
                         key={food.id}
                         className="d-flex align-items-center justify-content-between p-3 rounded-3"
-                        style={{ backgroundColor: '#141c28', border: '1px solid var(--border-color)' }}
+                        style={{ backgroundColor: '#ffffff', border: '1px solid var(--border-color)' }}
                       >
                         <div className="d-flex align-items-center gap-3">
                           <img
@@ -683,7 +683,7 @@ const Booking = () => {
 
                   <div
                     className="p-3 rounded-3 mb-4"
-                    style={{ backgroundColor: 'rgba(226, 135, 34, 0.1)', border: '1px solid rgba(226, 135, 34, 0.3)' }}
+                    style={{ backgroundColor: '#fffbeb', border: '1px solid rgba(226, 135, 34, 0.3)' }}
                   >
                     <div className="d-flex align-items-center gap-2 text-warning small fw-medium">
                       <AlertCircle size={16} className="flex-shrink-0" />
@@ -726,6 +726,7 @@ const Booking = () => {
 };
 
 export default Booking;
+
 
 
 
