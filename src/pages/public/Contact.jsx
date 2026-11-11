@@ -98,26 +98,6 @@ const Contact = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Map embed simulation */}
-              <div
-                className="rounded-3 overflow-hidden position-relative mt-2"
-                style={{ height: '180px', border: '1px solid var(--border-color)' }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&auto=format&fit=crop&q=80"
-                  alt="Restaurant Location Map"
-                  className="w-100 h-100 object-fit-cover"
-                />
-                <div
-                  className="position-absolute inset-0 d-flex align-items-center justify-content-center text-center p-3"
-                  style={{ top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(15, 23, 42, 0.7)' }}
-                >
-                  <div className="text-heading small fw-semibold">
-                    📍 Vị trí đắc địa - Có bãi đỗ xe ô tô và xe máy rộng rãi miễn phí
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
 

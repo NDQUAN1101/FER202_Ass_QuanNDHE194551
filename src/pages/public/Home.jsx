@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { foodApi } from '../../services/api';
 import FoodCard from '../../components/common/FoodCard';
