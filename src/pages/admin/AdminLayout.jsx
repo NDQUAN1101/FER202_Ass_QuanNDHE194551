@@ -44,7 +44,7 @@ const AdminLayout = () => {
         <div className="d-flex align-items-center gap-3">
           <Link to="/" className="btn btn-sm btn-outline-secondary text-dark d-flex align-items-center gap-1 rounded-3">
             <ArrowLeft size={15} />
-            <span className="d-none d-sm-inline">Xem Trang Khách Hàng</span>
+            <span className="d-none d-sm-inline">Về Trang Chủ</span>
           </Link>
 
           <div className="d-flex align-items-center gap-2 ps-3 border-start">
@@ -141,4 +141,5 @@ const AdminLayout = () => {
 };
 
 export default AdminLayout;
+
 

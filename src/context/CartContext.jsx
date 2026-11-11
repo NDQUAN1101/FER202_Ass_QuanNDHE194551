@@ -6,24 +6,33 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const { user } = useAuth();
 
-  // Tạo storage key riêng biệt theo từng tài khoản: 'ngon_cart_user@example.com' hoặc 'ngon_cart_guest'
   const getStorageKey = () => {
     return user ? `ngon_cart_${user.email}` : 'ngon_cart_guest';
   };
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    const key = user ? `ngon_cart_${user.email}` : 'ngon_cart_guest';
+    const saved = localStorage.getItem(key) || localStorage.getItem('ngon_cart') || localStorage.getItem('dinehub_cart');
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  // Khi tài khoản đăng nhập thay đổi (hoặc đăng xuất), tự động tải lại giỏ món của tài khoản đó
+  // Khi chuyển tài khoản hoặc đăng xuất, nạp đúng giỏ hàng của tài khoản đó
   useEffect(() => {
     const key = getStorageKey();
     const saved = localStorage.getItem(key);
     setCartItems(saved ? JSON.parse(saved) : []);
   }, [user]);
 
-  // Lưu giỏ món ăn đúng vào tài khoản hiện tại
+  // Tự động lưu giỏ hàng
   useEffect(() => {
     const key = getStorageKey();
-    localStorage.setItem(key, JSON.stringify(cartItems));
+    if (cartItems.length > 0) {
+      localStorage.setItem(key, JSON.stringify(cartItems));
+    } else {
+      localStorage.removeItem(key);
+      localStorage.removeItem('ngon_cart');
+      localStorage.removeItem('dinehub_cart');
+    }
   }, [cartItems, user]);
 
   const addToCart = (food, quantity = 1) => {
@@ -58,7 +67,11 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCartItems([]);
-    localStorage.removeItem(getStorageKey());
+    const key = getStorageKey();
+    localStorage.removeItem(key);
+    localStorage.removeItem('ngon_cart');
+    localStorage.removeItem('dinehub_cart');
+    localStorage.removeItem('ngon_cart_guest');
   };
 
   const totalAmount = cartItems.reduce(
