@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from 'lucide-react';
 import { useToast } from '../../context/ToastContext';
 
@@ -31,7 +31,7 @@ const Contact = () => {
           <span className="badge-gold mb-2 d-inline-block">Kết Nối Với Chúng Tôi</span>
           <h1 className="text-white fw-bold display-5 mb-2">Liên Hệ & Hỗ Trợ Đặt Tiệc</h1>
           <p className="text-muted mx-auto" style={{ maxWidth: '600px' }}>
-            Quý khách có thắc mắc hoặc cần tư vấn tổ chức sự kiện đặc biệt, đừng ngần ngại gửi lời nhắn cho DineHub.
+            Quý khách có thắc mắc hoặc cần tư vấn tổ chức sự kiện đặc biệt, đừng ngần ngại gửi lời nhắn cho Ngon.
           </p>
         </div>
 
@@ -79,7 +79,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h6 className="text-white fw-bold mb-1">Hòm Thư Điện Tử</h6>
-                    <p className="text-muted small mb-0">contact@dinehub.restaurant.vn</p>
+                    <p className="text-muted small mb-0">contact@Ngon.restaurant.vn</p>
                   </div>
                 </div>
 
@@ -126,7 +126,7 @@ const Contact = () => {
             <div className="glass-panel p-4 p-md-5">
               <h4 className="text-white fw-bold mb-3">Gửi Thắc Mắc & Góp Ý</h4>
               <p className="text-muted small mb-4">
-                Đội ngũ lễ tân và quản lý DineHub sẽ phản hồi lại bạn qua số điện thoại hoặc email trong vòng 30 phút.
+                Đội ngũ lễ tân và quản lý Ngon sẽ phản hồi lại bạn qua số điện thoại hoặc email trong vòng 30 phút.
               </p>
 
               {submitted ? (
@@ -134,7 +134,7 @@ const Contact = () => {
                   <CheckCircle size={56} className="text-success mb-3" />
                   <h4 className="text-white fw-bold mb-2">Đã Gửi Tin Nhắn Thành Công!</h4>
                   <p className="text-muted small mb-4">
-                    Cảm ơn bạn đã liên hệ với DineHub. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất.
+                    Cảm ơn bạn đã liên hệ với Ngon. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất.
                   </p>
                   <button
                     onClick={() => {
@@ -232,3 +232,4 @@ const Contact = () => {
 };
 
 export default Contact;
+

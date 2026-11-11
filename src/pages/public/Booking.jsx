@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { tableApi, foodApi, reservationApi } from '../../services/api';
 import { useAuth } from '../../context/AuthContext';
@@ -166,7 +166,7 @@ const Booking = () => {
         {/* Page Title */}
         <div className="text-center mb-5">
           <span className="badge-gold mb-2 d-inline-block">Dịch Vụ Đặt Chỗ Trực Tuyến</span>
-          <h1 className="text-white fw-bold display-5 mb-2">Đặt Bàn Nhà Hàng DineHub</h1>
+          <h1 className="text-white fw-bold display-5 mb-2">Đặt Bàn Nhà Hàng Ngon</h1>
           <p className="text-muted mx-auto" style={{ maxWidth: '600px' }}>
             Giữ chỗ nhanh chóng, chọn trước vị trí bàn yêu thích và gọi món lên sẵn để có trải nghiệm trọn vẹn nhất.
           </p>
@@ -726,3 +726,4 @@ const Booking = () => {
 };
 
 export default Booking;
+

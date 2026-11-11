@@ -1,4 +1,4 @@
-/* Global CSS & Design System for DineHub - Light, Clean & Fresh Aesthetic */
+﻿/* Global CSS & Design System for Ngon - Light, Clean & Fresh Aesthetic */
 :root {
   --primary-color: #e28722;
   --primary-hover: #cf7412;
@@ -267,3 +267,4 @@ a {
 .animate-fade-in {
   animation: fadeIn 0.35s ease-out forwards;
 }
+

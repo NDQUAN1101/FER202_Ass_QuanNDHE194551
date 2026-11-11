@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import { foodApi, categoryApi } from '../../services/api';
 import { useToast } from '../../context/ToastContext';
@@ -123,7 +123,7 @@ const AdminFoodForm = () => {
             {isEditMode ? 'Chỉnh Sửa Món Ăn' : 'Thêm Món Ăn Mới'}
           </h3>
           <p className="text-muted small mb-0">
-            {isEditMode ? `Cập nhật thông tin cho mã: ${id}` : 'Điền đầy đủ thông tin để bổ sung vào thực đơn DineHub'}
+            {isEditMode ? `Cập nhật thông tin cho mã: ${id}` : 'Điền đầy đủ thông tin để bổ sung vào thực đơn Ngon'}
           </p>
         </div>
 
@@ -304,3 +304,4 @@ const AdminFoodForm = () => {
 };
 
 export default AdminFoodForm;
+

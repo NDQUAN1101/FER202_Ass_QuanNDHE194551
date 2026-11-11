@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Award, HeartHandshake, ShieldCheck, Sparkles, Utensils } from 'lucide-react';
 
 const About = () => {
@@ -8,12 +8,12 @@ const About = () => {
         {/* Hero Banner */}
         <div className="row align-items-center g-5 mb-5 pb-lg-5">
           <div className="col-lg-6">
-            <span className="badge-gold mb-3 d-inline-block">Câu Chuyện Của DineHub</span>
+            <span className="badge-gold mb-3 d-inline-block">Câu Chuyện Của Ngon</span>
             <h1 className="text-white fw-bold display-5 mb-4" style={{ lineHeight: 1.2 }}>
               Nghệ Thuật Ẩm Thực Thăng Hoa & Không Gian <span style={{ color: 'var(--primary-color)' }}>Thượng Hạng</span>
             </h1>
             <p className="text-muted lead mb-4" style={{ fontSize: '1.1rem' }}>
-              Thành lập với khát vọng mang đến những trải nghiệm ẩm thực tinh hoa bậc nhất, DineHub không chỉ là nơi thưởng thức những đĩa thức ăn tuyệt mỹ mà còn là điểm hẹn của cảm xúc, sự gắn kết và những khoảnh khắc đáng nhớ.
+              Thành lập với khát vọng mang đến những trải nghiệm ẩm thực tinh hoa bậc nhất, Ngon không chỉ là nơi thưởng thức những đĩa thức ăn tuyệt mỹ mà còn là điểm hẹn của cảm xúc, sự gắn kết và những khoảnh khắc đáng nhớ.
             </p>
             <p className="text-muted">
               Từng miếng thịt bò Wagyu A5 nướng đá nóng, từng lát cá hồi Na-uy áp chảo hay ly vang đỏ Bordeaux hảo hạng đều được chọn lọc khắt khe và chế biến tỉ mỉ bằng cả trái tim của người đầu bếp.
@@ -26,7 +26,7 @@ const About = () => {
             >
               <img
                 src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1000&auto=format&fit=crop&q=80"
-                alt="DineHub Restaurant Interior"
+                alt="Ngon Restaurant Interior"
                 className="w-100 h-100 object-fit-cover"
                 style={{ minHeight: '380px' }}
               />
@@ -128,3 +128,4 @@ const About = () => {
 };
 
 export default About;
+

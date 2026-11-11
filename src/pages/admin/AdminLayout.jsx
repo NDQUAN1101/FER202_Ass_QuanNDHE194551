@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { LayoutDashboard, UtensilsCrossed, CalendarCheck, Grid, PlusCircle, ArrowLeft, LogOut, ShieldCheck } from 'lucide-react';
@@ -35,7 +35,7 @@ const AdminLayout = () => {
               <ShieldCheck size={20} color="#ffffff" />
             </div>
             <div>
-              <span className="fw-bold text-dark fs-5">DineHub</span>
+              <span className="fw-bold text-dark fs-5">Ngon</span>
               <span className="badge bg-warning text-dark ms-2 small">ADMIN PORTAL</span>
             </div>
           </Link>
@@ -141,3 +141,4 @@ const AdminLayout = () => {
 };
 
 export default AdminLayout;
+

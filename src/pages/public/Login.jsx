@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../context/ToastContext';
@@ -76,11 +76,11 @@ const Login = () => {
               <Utensils size={26} color="#ffffff" />
             </div>
             <h3 className="fw-bold mb-1 text-heading">
-              {isRegisterMode ? 'Đăng Ký Tài Khoản' : 'Đăng Nhập DineHub'}
+              {isRegisterMode ? 'Đăng Ký Tài Khoản' : 'Đăng Nhập Ngon'}
             </h3>
             <p className="text-muted small">
               {isRegisterMode
-                ? 'Tạo tài khoản mới để đặt bàn và nhận ưu đãi từ DineHub'
+                ? 'Tạo tài khoản mới để đặt bàn và nhận ưu đãi từ Ngon'
                 : 'Truy cập để đặt bàn và quản lý thực đơn nhà hàng'}
             </p>
           </div>
@@ -232,3 +232,4 @@ const Login = () => {
 };
 
 export default Login;
+

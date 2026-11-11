@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { Utensils, MapPin, Phone, Mail, Clock, Heart } from 'lucide-react';
 
@@ -24,11 +24,11 @@ const Footer = () => {
                 <Utensils size={20} color="#ffffff" />
               </div>
               <span className="fw-bold fs-4 text-brand">
-                Dine<span style={{ color: 'var(--primary-color)' }}>Hub</span>
+                <span style={{ color: 'var(--primary-color)' }}>Ngon</span>
               </span>
             </div>
             <p className="text-muted small pe-lg-4 mb-0">
-              DineHub là nền tảng đặt bàn và trải nghiệm ẩm thực trực tuyến chất lượng cao. Chúng tôi cam kết mang lại không gian thoải mái, dịch vụ tận tâm và những món ăn tươi ngon chuẩn vị.
+              Ngon là nền tảng đặt bàn và trải nghiệm ẩm thực trực tuyến chất lượng cao. Chúng tôi cam kết mang lại không gian thoải mái, dịch vụ tận tâm và những món ăn tươi ngon chuẩn vị.
             </p>
           </div>
 
@@ -48,7 +48,7 @@ const Footer = () => {
               </li>
               <li className="d-flex align-items-center gap-2">
                 <Mail size={16} className="text-warning flex-shrink-0" />
-                <span>contact@dinehub.vn</span>
+                <span>contact@Ngon.vn</span>
               </li>
               <li className="d-flex align-items-center gap-2">
                 <Clock size={16} className="text-warning flex-shrink-0" />
@@ -95,7 +95,7 @@ const Footer = () => {
         {/* Bottom copyright */}
         <div className="pt-4 d-flex flex-column flex-md-row align-items-center justify-content-between small text-muted">
           <div>
-            &copy; {new Date().getFullYear()} DineHub Restaurant. All rights reserved.
+            &copy; {new Date().getFullYear()} Ngon Restaurant. All rights reserved.
           </div>
           <div className="d-flex align-items-center gap-1 mt-2 mt-md-0">
             <span>Đồng hành cùng trải nghiệm ẩm thực của bạn</span>
@@ -108,3 +108,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

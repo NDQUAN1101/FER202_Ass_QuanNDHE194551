@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { useLocation, Link, Navigate } from 'react-router-dom';
 import { CheckCircle2, Copy, Calendar, Clock, MapPin, Printer, ArrowRight } from 'lucide-react';
 import { useToast } from '../../context/ToastContext';
@@ -44,7 +44,7 @@ const BookingSuccess = () => {
 
           <h2 className="text-white fw-bold display-6 mb-2">Đặt Bàn Thành Công!</h2>
           <p className="text-muted mb-4">
-            Cảm ơn quý khách <strong>{reservation.customerName}</strong> đã lựa chọn DineHub. Nhân viên chăm sóc khách hàng sẽ liên hệ xác nhận bàn trong vòng 10 phút.
+            Cảm ơn quý khách <strong>{reservation.customerName}</strong> đã lựa chọn Ngon. Nhân viên chăm sóc khách hàng sẽ liên hệ xác nhận bàn trong vòng 10 phút.
           </p>
 
           {/* Reservation Code Box */}
@@ -168,3 +168,4 @@ const BookingSuccess = () => {
 };
 
 export default BookingSuccess;
+

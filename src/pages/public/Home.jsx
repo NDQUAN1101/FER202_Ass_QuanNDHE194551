@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { foodApi } from '../../services/api';
 import FoodCard from '../../components/common/FoodCard';
@@ -89,7 +89,7 @@ const Home = () => {
                 >
                   <img
                     src="https://images.unsplash.com/photo-1544025162-d76694265947?w=1000&auto=format&fit=crop&q=80"
-                    alt="DineHub Signature Wagyu"
+                    alt="Ngon Signature Wagyu"
                     className="w-100 h-100 object-fit-cover"
                     style={{ minHeight: '420px', maxHeight: '520px' }}
                   />
@@ -136,7 +136,7 @@ const Home = () => {
             <div>
               <span className="badge-gold mb-2 d-inline-block">Tuyển Chọn Tinh Hoa</span>
               <h2 className="fw-bold display-6 mb-2 text-heading">Món Ăn Đặc Sắc Được Yêu Thích</h2>
-              <p className="text-muted mb-0">Những món ăn mang đậm phong vị đặc trưng tại DineHub</p>
+              <p className="text-muted mb-0">Những món ăn mang đậm phong vị đặc trưng tại Ngon</p>
             </div>
             <Link to="/menu" className="btn-outline-custom text-decoration-none mt-3 mt-md-0 d-inline-flex align-items-center gap-2">
               <span>Xem Tất Cả Món</span>
@@ -242,7 +242,7 @@ const Home = () => {
               <div className="col-md-8">
                 <h3 className="fw-bold display-6 mb-2 text-heading">Bạn Muốn Tổ Chức Tiệc Hoặc Sự Kiện?</h3>
                 <p className="text-muted mb-md-0">
-                  Hãy liên hệ ngay với ban quản lý DineHub để nhận tư vấn set menu ưu đãi và dịch vụ chu đáo theo yêu cầu.
+                  Hãy liên hệ ngay với ban quản lý Ngon để nhận tư vấn set menu ưu đãi và dịch vụ chu đáo theo yêu cầu.
                 </p>
               </div>
               <div className="col-md-4 text-md-end">
@@ -259,3 +259,4 @@ const Home = () => {
 };
 
 export default Home;
+

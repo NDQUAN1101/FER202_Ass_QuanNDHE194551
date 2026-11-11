@@ -1,15 +1,15 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+﻿import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    const saved = localStorage.getItem('dinehub_cart');
+    const saved = localStorage.getItem('ngon_cart');
     return saved ? JSON.parse(saved) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem('dinehub_cart', JSON.stringify(cartItems));
+    localStorage.setItem('ngon_cart', JSON.stringify(cartItems));
   }, [cartItems]);
 
   const addToCart = (food, quantity = 1) => {
@@ -71,3 +71,4 @@ export const CartProvider = ({ children }) => {
 };
 
 export const useCart = () => useContext(CartContext);
+

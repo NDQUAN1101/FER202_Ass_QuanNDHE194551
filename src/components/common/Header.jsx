@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useCart } from '../../context/CartContext';
@@ -37,7 +37,7 @@ const Header = () => {
             </div>
             <div>
               <div style={{ fontWeight: 800, fontSize: '1.35rem', letterSpacing: '-0.5px', color: '#0f172a', lineHeight: 1.1 }}>
-                Dine<span style={{ color: 'var(--primary-color)' }}>Hub</span>
+                <span style={{ color: 'var(--primary-color)' }}>Ngon</span>
               </div>
               <small style={{ fontSize: '0.68rem', color: '#64748b', letterSpacing: '0.5px', textTransform: 'uppercase', fontWeight: 600 }}>
                 Nhà Hàng & Đặt Bàn Trực Tuyến
@@ -338,3 +338,4 @@ const Header = () => {
 };
 
 export default Header;
+

@@ -1,28 +1,28 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+﻿import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
-    const saved = localStorage.getItem('dinehub_user');
+    const saved = localStorage.getItem('ngon_user');
     return saved ? JSON.parse(saved) : null;
   });
 
   useEffect(() => {
     if (user) {
-      localStorage.setItem('dinehub_user', JSON.stringify(user));
+      localStorage.setItem('ngon_user', JSON.stringify(user));
     } else {
-      localStorage.removeItem('dinehub_user');
+      localStorage.removeItem('ngon_user');
     }
   }, [user]);
 
   const login = (email, password) => {
     // Admin account
-    if (email === 'admin@dinehub.com' && (password === 'admin' || password === 'admin123')) {
+    if (email === 'admin@ngon.vn' && (password === 'admin' || password === 'admin123')) {
       const adminUser = {
         id: 'usr-1',
         fullName: 'Quản Trị Viên (Admin)',
-        email: 'admin@dinehub.com',
+        email: 'admin@ngon.vn',
         role: 'admin',
         avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80'
       };
@@ -68,3 +68,4 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuth = () => useContext(AuthContext);
+

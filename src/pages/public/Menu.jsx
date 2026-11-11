@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+﻿import React, { useState, useEffect, useMemo } from 'react';
 import { foodApi, categoryApi } from '../../services/api';
 import FoodCard from '../../components/common/FoodCard';
 import { Search, Filter, SlidersHorizontal, Utensils, RotateCcw, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -113,7 +113,7 @@ const Menu = () => {
         {/* Page Header */}
         <div className="text-center mb-5">
           <span className="badge-gold mb-2 d-inline-block shadow-sm">Tuyển Chọn Tinh Hoa</span>
-          <h1 className="fw-bold display-5 mb-2 text-heading">Thực Đơn Nhà Hàng DineHub</h1>
+          <h1 className="fw-bold display-5 mb-2 text-heading">Thực Đơn Nhà Hàng Ngon</h1>
           <p className="text-muted mx-auto" style={{ maxWidth: '650px' }}>
             Khám phá hương vị phong phú từ các món khai vị thanh tao, bò hảo hạng, hải sản tươi sống và đồ uống cao cấp.
           </p>
@@ -334,3 +334,4 @@ const Menu = () => {
 };
 
 export default Menu;
+
