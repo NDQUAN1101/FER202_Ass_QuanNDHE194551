@@ -96,7 +96,7 @@ const AdminFoods = () => {
               />
               <input
                 type="text"
-                className="form-control form-control-custom ps-5"
+                className="form-control form-control-custom input-with-icon"
                 placeholder="Tìm kiếm món ăn theo tên..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -257,4 +257,5 @@ const AdminFoods = () => {
 };
 
 export default AdminFoods;
+
 

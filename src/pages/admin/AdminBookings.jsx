@@ -83,7 +83,7 @@ const AdminBookings = () => {
               />
               <input
                 type="text"
-                className="form-control form-control-custom ps-5"
+                className="form-control form-control-custom input-with-icon"
                 placeholder="Tìm theo Mã đơn, Tên khách hoặc SĐT..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
@@ -300,4 +300,5 @@ const AdminBookings = () => {
 };
 
 export default AdminBookings;
+
 

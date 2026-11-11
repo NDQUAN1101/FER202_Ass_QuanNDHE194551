@@ -159,7 +159,7 @@ const Menu = () => {
                 />
                 <input
                   type="text"
-                  className="form-control form-control-custom ps-5"
+                  className="form-control form-control-custom input-with-icon"
                   placeholder="Tìm kiếm theo tên món ăn hoặc mô tả..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -334,4 +334,5 @@ const Menu = () => {
 };
 
 export default Menu;
+
 
