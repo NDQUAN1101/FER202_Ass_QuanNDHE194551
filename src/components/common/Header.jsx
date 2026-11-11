@@ -107,6 +107,17 @@ const Header = () => {
             >
               Liên Hệ
             </NavLink>
+
+            {/* Admin Portal Shortcut if logged in as Admin */}
+            {isAdmin && (
+              <NavLink
+                to="/admin"
+                className="badge bg-warning text-dark px-3 py-2 text-decoration-none fw-bold d-inline-flex align-items-center gap-1 shadow-sm"
+              >
+                <ShieldCheck size={15} />
+                <span>Cổng Quản Trị</span>
+              </NavLink>
+            )}
           </nav>
 
           {/* Right Action Icons & Auth */}
@@ -151,19 +162,24 @@ const Header = () => {
                     alt={user.fullName}
                     style={{ width: '32px', height: '32px', borderRadius: '50%', objectFit: 'cover' }}
                   />
-                  <span className="d-none d-md-inline small fw-semibold text-dark">{user.fullName}</span>
+                  <span className="d-none d-md-inline small fw-semibold text-dark">
+                    {user.fullName} {isAdmin && <span className="badge bg-warning text-dark ms-1">Admin</span>}
+                  </span>
                 </button>
-                <ul className="dropdown-menu dropdown-menu-end shadow border-0 p-2 mt-2" style={{ backgroundColor: '#ffffff', minWidth: '220px' }}>
+                <ul className="dropdown-menu dropdown-menu-end shadow border-0 p-2 mt-2" style={{ backgroundColor: '#ffffff', minWidth: '230px' }}>
                   <li className="px-3 py-2 border-bottom">
-                    <div className="fw-bold small text-dark">{user.fullName}</div>
+                    <div className="fw-bold small text-dark d-flex align-items-center justify-content-between">
+                      <span>{user.fullName}</span>
+                      {isAdmin && <span className="badge bg-warning text-dark">Admin</span>}
+                    </div>
                     <div className="text-muted small" style={{ fontSize: '0.75rem' }}>{user.email}</div>
                   </li>
 
                   {isAdmin && (
                     <li>
-                      <Link to="/admin" className="dropdown-item d-flex align-items-center gap-2 py-2 rounded text-dark">
-                        <ShieldCheck size={16} color="var(--primary-color)" />
-                        <span>Cổng Quản Trị (Admin)</span>
+                      <Link to="/admin" className="dropdown-item d-flex align-items-center gap-2 py-2 rounded text-dark fw-bold bg-light mt-1">
+                        <ShieldCheck size={18} color="var(--primary-color)" />
+                        <span>Truy Cập Cổng Quản Trị</span>
                       </Link>
                     </li>
                   )}
@@ -219,6 +235,11 @@ const Header = () => {
               <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="text-decoration-none text-dark fw-semibold">
                 Liên Hệ
               </Link>
+              {isAdmin && (
+                <Link to="/admin" onClick={() => setMobileMenuOpen(false)} className="badge bg-warning text-dark p-2 text-decoration-none fw-bold text-center">
+                  Cổng Quản Trị (Admin)
+                </Link>
+              )}
             </div>
           </div>
         )}
@@ -338,4 +359,3 @@ const Header = () => {
 };
 
 export default Header;
-
