@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { reservationApi, tableApi } from '../../services/api';
 import { useToast } from '../../context/ToastContext';
 import { Search, Calendar, Clock, Check, X, CheckCheck, Eye, Users } from 'lucide-react';
@@ -66,7 +66,7 @@ const AdminBookings = () => {
       {/* Title */}
       <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
         <div>
-          <h2 className="text-white fw-bold mb-1">Quản Lý Lịch Đặt Bàn</h2>
+          <h2 className="text-heading fw-bold mb-1">Quản Lý Lịch Đặt Bàn</h2>
           <p className="text-muted small mb-0">Duyệt yêu cầu đặt chỗ, theo dõi bàn ăn và món đặt trước của khách</p>
         </div>
       </div>
@@ -99,7 +99,7 @@ const AdminBookings = () => {
                 className={`btn btn-sm px-3 py-1 rounded-pill fw-semibold ${
                   filterStatus === st
                     ? 'btn-warning text-dark'
-                    : 'btn-dark text-light border border-secondary border-opacity-50'
+                    : 'btn-dark text-secondary border border-secondary border-opacity-50'
                 }`}
               >
                 {st === 'all'
@@ -129,7 +129,7 @@ const AdminBookings = () => {
           </div>
         ) : (
           <div className="table-responsive">
-            <table className="table table-dark table-hover align-middle mb-0" style={{ backgroundColor: 'transparent' }}>
+            <table className="table table-light border table-hover align-middle mb-0" style={{ backgroundColor: 'transparent' }}>
               <thead>
                 <tr className="border-secondary text-muted small">
                   <th>MÃ ĐƠN</th>
@@ -150,12 +150,12 @@ const AdminBookings = () => {
                         <span className="fw-bold text-warning">{res.id}</span>
                       </td>
                       <td>
-                        <div className="text-white fw-medium">{res.customerName}</div>
+                        <div className="text-heading fw-medium">{res.customerName}</div>
                         <small className="text-muted">{res.email}</small>
                       </td>
-                      <td className="text-light">{res.phone}</td>
+                      <td className="text-secondary">{res.phone}</td>
                       <td>
-                        <div className="text-white">{res.timeSlot}</div>
+                        <div className="text-heading">{res.timeSlot}</div>
                         <small className="text-muted">{res.date}</small>
                       </td>
                       <td>
@@ -247,7 +247,7 @@ const AdminBookings = () => {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom border-secondary border-opacity-25">
-              <h5 className="text-white fw-bold mb-0">
+              <h5 className="text-heading fw-bold mb-0">
                 Chi Tiết Đơn Đặt Bàn {activeReservation.id}
               </h5>
               <button
@@ -259,7 +259,7 @@ const AdminBookings = () => {
             </div>
 
             <div className="mb-3">
-              <div className="text-white fw-bold">{activeReservation.customerName} - {activeReservation.phone}</div>
+              <div className="text-heading fw-bold">{activeReservation.customerName} - {activeReservation.phone}</div>
               <div className="text-muted small">
                 Lịch: {activeReservation.timeSlot} ngày {activeReservation.date} ({activeReservation.guestsCount} khách)
               </div>
@@ -270,7 +270,7 @@ const AdminBookings = () => {
               )}
             </div>
 
-            <h6 className="text-white fw-bold mb-2">Món ăn đặt chuẩn bị sẵn:</h6>
+            <h6 className="text-heading fw-bold mb-2">Món ăn đặt chuẩn bị sẵn:</h6>
             <div className="d-flex flex-column gap-2 mb-3" style={{ maxHeight: '250px', overflowY: 'auto' }}>
               {activeReservation.orderItems?.map((item, idx) => (
                 <div
@@ -278,7 +278,7 @@ const AdminBookings = () => {
                   className="d-flex justify-content-between p-2 rounded"
                   style={{ backgroundColor: '#1c2636' }}
                 >
-                  <span className="text-light small">
+                  <span className="text-secondary small">
                     {item.foodName} &times; <strong>{item.quantity}</strong>
                   </span>
                   <span className="text-warning fw-bold small">
@@ -300,3 +300,4 @@ const AdminBookings = () => {
 };
 
 export default AdminBookings;
+

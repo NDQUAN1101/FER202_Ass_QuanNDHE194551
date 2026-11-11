@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { foodApi, categoryApi } from '../../services/api';
 import { useToast } from '../../context/ToastContext';
@@ -76,7 +76,7 @@ const AdminFoods = () => {
       {/* Title & Action */}
       <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
         <div>
-          <h2 className="text-white fw-bold mb-1">Quản Lý Thực Đơn Nhà Hàng</h2>
+          <h2 className="text-heading fw-bold mb-1">Quản Lý Thực Đơn Nhà Hàng</h2>
           <p className="text-muted small mb-0">Thêm, sửa, xóa món ăn và cập nhật trạng thái kho nguyên liệu</p>
         </div>
         <Link to="/admin/foods/create" className="btn-primary-custom text-decoration-none py-2 px-3">
@@ -137,7 +137,7 @@ const AdminFoods = () => {
           </div>
         ) : (
           <div className="table-responsive">
-            <table className="table table-dark table-hover align-middle mb-0" style={{ backgroundColor: 'transparent' }}>
+            <table className="table table-light border table-hover align-middle mb-0" style={{ backgroundColor: 'transparent' }}>
               <thead>
                 <tr className="border-secondary text-muted small">
                   <th>HÌNH ẢNH</th>
@@ -162,7 +162,7 @@ const AdminFoods = () => {
                         />
                       </td>
                       <td>
-                        <div className="fw-bold text-white mb-1">{food.name}</div>
+                        <div className="fw-bold text-heading mb-1">{food.name}</div>
                         <div className="d-flex gap-1">
                           {food.isSpecial && <span className="badge-gold small py-0 px-2">Đặc sắc</span>}
                           {food.isVegetarian && <span className="badge-green small py-0 px-2">Món chay</span>}
@@ -172,7 +172,7 @@ const AdminFoods = () => {
                         {cat ? cat.name.split('(')[0] : 'Chung'}
                       </td>
                       <td className="text-warning fw-bold">{formatVND(food.price)}</td>
-                      <td className="text-light small">{food.preparationTime} phút</td>
+                      <td className="text-secondary small">{food.preparationTime} phút</td>
                       <td>
                         <button
                           onClick={() => handleToggleStatus(food)}
@@ -231,7 +231,7 @@ const AdminFoods = () => {
             className="p-4 rounded-4 animate-fade-in"
             style={{ maxWidth: '420px', width: '100%', backgroundColor: '#131b26', border: '1px solid var(--border-color)' }}
           >
-            <h5 className="text-white fw-bold mb-2">Xác Nhận Xóa Món Ăn</h5>
+            <h5 className="text-heading fw-bold mb-2">Xác Nhận Xóa Món Ăn</h5>
             <p className="text-muted small mb-4">
               Bạn có chắc chắn muốn xóa món <strong className="text-warning">{deleteTarget.name}</strong> khỏi thực đơn? Hành động này không thể hoàn tác.
             </p>
@@ -257,3 +257,4 @@ const AdminFoods = () => {
 };
 
 export default AdminFoods;
+

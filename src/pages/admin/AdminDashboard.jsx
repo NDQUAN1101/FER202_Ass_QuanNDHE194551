@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { foodApi, reservationApi, tableApi } from '../../services/api';
 import { Utensils, CalendarCheck, DollarSign, Grid, ArrowUpRight, Plus, Eye } from 'lucide-react';
@@ -42,7 +42,7 @@ const AdminDashboard = () => {
       {/* Page Title & Action */}
       <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
         <div>
-          <h2 className="text-white fw-bold mb-1">Bảng Tổng Quan Hoạt Động</h2>
+          <h2 className="text-heading fw-bold mb-1">Bảng Tổng Quan Hoạt Động</h2>
           <p className="text-muted small mb-0">Theo dõi doanh thu, tình trạng bàn ăn và lịch đặt bàn hôm nay</p>
         </div>
         <div className="d-flex gap-2">
@@ -63,7 +63,7 @@ const AdminDashboard = () => {
                 <CalendarCheck size={20} />
               </div>
             </div>
-            <div className="fs-3 fw-bold text-white mb-1">{reservations.length}</div>
+            <div className="fs-3 fw-bold text-heading mb-1">{reservations.length}</div>
             <div className="small text-warning">
               {pendingCount} đơn chờ duyệt xác nhận
             </div>
@@ -79,7 +79,7 @@ const AdminDashboard = () => {
                 <DollarSign size={20} />
               </div>
             </div>
-            <div className="fs-3 fw-bold text-white mb-1">{formatVND(totalRevenue)}</div>
+            <div className="fs-3 fw-bold text-heading mb-1">{formatVND(totalRevenue)}</div>
             <div className="small text-success">Từ các món ăn đặt trước</div>
           </div>
         </div>
@@ -93,7 +93,7 @@ const AdminDashboard = () => {
                 <Grid size={20} />
               </div>
             </div>
-            <div className="fs-3 fw-bold text-white mb-1">
+            <div className="fs-3 fw-bold text-heading mb-1">
               {availableTablesCount} / {tables.length}
             </div>
             <div className="small text-muted">Bàn trống đang có thể nhận khách</div>
@@ -109,7 +109,7 @@ const AdminDashboard = () => {
                 <Utensils size={20} />
               </div>
             </div>
-            <div className="fs-3 fw-bold text-white mb-1">{foods.length} Món</div>
+            <div className="fs-3 fw-bold text-heading mb-1">{foods.length} Món</div>
             <div className="small text-muted">Bao gồm 5 danh mục ẩm thực</div>
           </div>
         </div>
@@ -118,7 +118,7 @@ const AdminDashboard = () => {
       {/* Recent Bookings Table */}
       <div className="glass-panel p-4 mb-4">
         <div className="d-flex justify-content-between align-items-center mb-3">
-          <h5 className="text-white fw-bold mb-0">Lịch Đặt Bàn Gần Đây</h5>
+          <h5 className="text-heading fw-bold mb-0">Lịch Đặt Bàn Gần Đây</h5>
           <Link to="/admin/bookings" className="text-warning small text-decoration-none fw-semibold">
             Xem Tất Cả &rarr;
           </Link>
@@ -130,7 +130,7 @@ const AdminDashboard = () => {
           </div>
         ) : (
           <div className="table-responsive">
-            <table className="table table-dark table-hover mb-0 align-middle" style={{ backgroundColor: 'transparent' }}>
+            <table className="table table-light border table-hover mb-0 align-middle" style={{ backgroundColor: 'transparent' }}>
               <thead>
                 <tr className="border-secondary text-muted small">
                   <th>MÃ ĐƠN</th>
@@ -148,9 +148,9 @@ const AdminDashboard = () => {
                     <td>
                       <span className="fw-bold text-warning">{res.id}</span>
                     </td>
-                    <td className="text-white fw-medium">{res.customerName}</td>
+                    <td className="text-heading fw-medium">{res.customerName}</td>
                     <td className="text-muted">{res.phone}</td>
-                    <td className="text-light">
+                    <td className="text-secondary">
                       {res.timeSlot} - {res.date}
                     </td>
                     <td>{res.guestsCount} khách</td>
@@ -178,3 +178,4 @@ const AdminDashboard = () => {
 };
 
 export default AdminDashboard;
+

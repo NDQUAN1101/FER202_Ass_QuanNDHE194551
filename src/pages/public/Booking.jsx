@@ -166,7 +166,7 @@ const Booking = () => {
         {/* Page Title */}
         <div className="text-center mb-5">
           <span className="badge-gold mb-2 d-inline-block">Dịch Vụ Đặt Chỗ Trực Tuyến</span>
-          <h1 className="text-white fw-bold display-5 mb-2">Đặt Bàn Nhà Hàng Ngon</h1>
+          <h1 className="fw-bold display-5 mb-2 text-heading">Đặt Bàn Nhà Hàng Ngon</h1>
           <p className="text-muted mx-auto" style={{ maxWidth: '600px' }}>
             Giữ chỗ nhanh chóng, chọn trước vị trí bàn yêu thích và gọi món lên sẵn để có trải nghiệm trọn vẹn nhất.
           </p>
@@ -275,14 +275,14 @@ const Booking = () => {
           <div className="row g-4 animate-fade-in">
             <div className="col-lg-5">
               <div className="glass-panel p-4 h-100">
-                <h4 className="text-white fw-bold mb-4 d-flex align-items-center gap-2">
+                <h4 className="fw-bold text-heading mb-4 d-flex align-items-center gap-2">
                   <Calendar size={22} className="text-warning" />
                   <span>1. Chọn Lịch Dùng Bữa</span>
                 </h4>
 
                 {/* Date */}
                 <div className="mb-3">
-                  <label className="form-label text-light small fw-medium">Ngày đặt bàn:</label>
+                  <label className="form-label text-secondary small fw-semibold">Ngày đặt bàn:</label>
                   <input
                     type="date"
                     className="form-control form-control-custom"
@@ -294,7 +294,7 @@ const Booking = () => {
 
                 {/* Guests */}
                 <div className="mb-4">
-                  <label className="form-label text-light small fw-medium">Số lượng khách:</label>
+                  <label className="form-label text-secondary small fw-semibold">Số lượng khách:</label>
                   <div className="d-flex align-items-center gap-3">
                     <input
                       type="range"
@@ -312,7 +312,7 @@ const Booking = () => {
 
                 {/* Time slot pills */}
                 <div className="mb-4">
-                  <label className="form-label text-light small fw-medium d-flex align-items-center gap-1">
+                  <label className="form-label text-secondary small fw-semibold d-flex align-items-center gap-1">
                     <Clock size={16} className="text-warning" />
                     <span>Khung giờ nhận bàn:</span>
                   </label>
@@ -325,7 +325,7 @@ const Booking = () => {
                         className={`btn btn-sm px-3 py-2 rounded-2 fw-semibold ${
                           timeSlot === slot
                             ? 'btn-warning text-dark'
-                            : 'btn-dark text-light border border-secondary border-opacity-50'
+                            : 'btn-light border text-secondary'
                         }`}
                       >
                         {slot}
@@ -337,10 +337,10 @@ const Booking = () => {
                 {/* Selected summary */}
                 <div className="p-3 rounded-3" style={{ backgroundColor: '#131b26', border: '1px solid var(--border-color)' }}>
                   <div className="small text-muted mb-1">Tóm tắt bước 1:</div>
-                  <div className="text-white fw-medium">
+                  <div className="text-heading fw-semibold">
                     📅 Ngày <strong>{date}</strong> vào lúc <strong className="text-warning">{timeSlot}</strong>
                   </div>
-                  <div className="text-white small mt-1">
+                  <div className="text-secondary small mt-1">
                     👥 Đi nhóm: <strong>{guestsCount} người</strong>
                   </div>
                 </div>
@@ -351,7 +351,7 @@ const Booking = () => {
             <div className="col-lg-7">
               <div className="glass-panel p-4 h-100">
                 <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 mb-4">
-                  <h4 className="text-white fw-bold mb-0 d-flex align-items-center gap-2">
+                  <h4 className="fw-bold text-heading mb-0 d-flex align-items-center gap-2">
                     <MapPin size={22} className="text-warning" />
                     <span>2. Chọn Vị Trí Bàn Ăn</span>
                   </h4>
@@ -396,7 +396,7 @@ const Booking = () => {
                             }}
                           >
                             <div className="d-flex justify-content-between align-items-start mb-2">
-                              <span className="fw-bold fs-6 text-white">{table.code}</span>
+                              <span className="fw-bold fs-6 text-heading">{table.code}</span>
                               {isAvailable ? (
                                 <span className="badge-green small">Trống</span>
                               ) : (
@@ -436,7 +436,7 @@ const Booking = () => {
             <div className="col-lg-7">
               <div className="glass-panel p-4">
                 <div className="d-flex justify-content-between align-items-center mb-3">
-                  <h4 className="text-white fw-bold mb-0 d-flex align-items-center gap-2">
+                  <h4 className="fw-bold text-heading mb-0 d-flex align-items-center gap-2">
                     <Utensils size={22} className="text-warning" />
                     <span>Chọn Món Ăn Mang Lên Sẵn (Tùy Chọn)</span>
                   </h4>
@@ -463,7 +463,7 @@ const Booking = () => {
                             style={{ width: '64px', height: '64px', borderRadius: '10px', objectFit: 'cover' }}
                           />
                           <div>
-                            <div className="fw-semibold text-white">{food.name}</div>
+                            <div className="fw-semibold text-heading">{food.name}</div>
                             <div className="text-warning fw-bold small">{formatVND(food.price)}</div>
                             <small className="text-muted">{food.preparationTime} phút chế biến</small>
                           </div>
@@ -478,7 +478,7 @@ const Booking = () => {
                               >
                                 -
                               </button>
-                              <span className="text-white fw-bold px-2">{qty}</span>
+                              <span className="text-heading fw-bold px-2">{qty}</span>
                               <button
                                 className="btn btn-sm btn-secondary px-2 py-1"
                                 onClick={() => updateQuantity(food.id, qty + 1)}
@@ -509,7 +509,7 @@ const Booking = () => {
             <div className="col-lg-5">
               <div className="glass-panel p-4 h-100 d-flex flex-column justify-content-between">
                 <div>
-                  <h4 className="text-white fw-bold mb-3">Danh Sách Món Đã Chọn</h4>
+                  <h4 className="fw-bold text-heading mb-3">Danh Sách Món Đã Chọn</h4>
                   {cartItems.length === 0 ? (
                     <div className="text-center py-5 text-muted">
                       <Utensils size={40} className="mb-2 opacity-50" />
@@ -525,7 +525,7 @@ const Booking = () => {
                           style={{ backgroundColor: '#182232', border: '1px solid var(--border-color)' }}
                         >
                           <div>
-                            <div className="text-white small fw-medium">{item.food.name}</div>
+                            <div className="text-heading small fw-semibold">{item.food.name}</div>
                             <small className="text-muted">
                               {formatVND(item.food.price)} &times; {item.quantity}
                             </small>
@@ -548,7 +548,7 @@ const Booking = () => {
                   <div className="d-flex justify-content-between gap-3">
                     <button
                       onClick={() => setStep(1)}
-                      className="btn btn-outline-secondary text-light d-flex align-items-center gap-1"
+                      className="btn btn-outline-secondary text-dark d-flex align-items-center gap-1"
                     >
                       <ChevronLeft size={18} />
                       <span>Quay Lại</span>
@@ -573,12 +573,12 @@ const Booking = () => {
             {/* Contact Details Form */}
             <div className="col-lg-7">
               <div className="glass-panel p-4">
-                <h4 className="text-white fw-bold mb-4">Thông Tin Liên Hệ Nhận Bàn</h4>
+                <h4 className="fw-bold text-heading mb-4">Thông Tin Liên Hệ Nhận Bàn</h4>
 
                 <div className="row g-3">
                   {/* Name */}
                   <div className="col-md-12">
-                    <label className="form-label text-light small fw-medium">
+                    <label className="form-label text-secondary small fw-semibold">
                       Họ và tên quý khách <span className="text-danger">*</span>
                     </label>
                     <input
@@ -595,7 +595,7 @@ const Booking = () => {
 
                   {/* Phone */}
                   <div className="col-md-6">
-                    <label className="form-label text-light small fw-medium">
+                    <label className="form-label text-secondary small fw-semibold">
                       Số điện thoại di động <span className="text-danger">*</span>
                     </label>
                     <input
@@ -612,7 +612,7 @@ const Booking = () => {
 
                   {/* Email */}
                   <div className="col-md-6">
-                    <label className="form-label text-light small fw-medium">
+                    <label className="form-label text-secondary small fw-semibold">
                       Địa chỉ Email <span className="text-danger">*</span>
                     </label>
                     <input
@@ -629,7 +629,7 @@ const Booking = () => {
 
                   {/* Special Requests */}
                   <div className="col-12">
-                    <label className="form-label text-light small fw-medium">
+                    <label className="form-label text-secondary small fw-semibold">
                       Yêu cầu đặc biệt (Ghế em bé, nến sinh nhật, hoa tươi trang trí...)
                     </label>
                     <textarea
@@ -648,12 +648,12 @@ const Booking = () => {
             <div className="col-lg-5">
               <div className="glass-panel p-4 h-100 d-flex flex-column justify-content-between">
                 <div>
-                  <h4 className="text-white fw-bold mb-4">Chi Tiết Đơn Đặt Bàn</h4>
+                  <h4 className="fw-bold text-heading mb-4">Chi Tiết Đơn Đặt Bàn</h4>
 
                   <div className="d-flex flex-column gap-3 mb-4">
                     <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-secondary border-opacity-25">
                       <span>Lịch hẹn:</span>
-                      <strong className="text-white">
+                      <strong className="text-heading">
                         {timeSlot} - Ngày {date}
                       </strong>
                     </div>
@@ -667,12 +667,12 @@ const Booking = () => {
 
                     <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-secondary border-opacity-25">
                       <span>Số lượng khách:</span>
-                      <strong className="text-white">{guestsCount} người</strong>
+                      <strong className="text-heading">{guestsCount} người</strong>
                     </div>
 
                     <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-secondary border-opacity-25">
                       <span>Món gọi trước ({cartItems.length}):</span>
-                      <strong className="text-white">{formatVND(totalAmount)}</strong>
+                      <strong className="text-heading">{formatVND(totalAmount)}</strong>
                     </div>
 
                     <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-secondary border-opacity-25">
@@ -696,7 +696,7 @@ const Booking = () => {
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="btn btn-outline-secondary text-light d-flex align-items-center gap-1"
+                    className="btn btn-outline-secondary text-dark d-flex align-items-center gap-1"
                   >
                     <ChevronLeft size={18} />
                     <span>Quay Lại</span>
@@ -726,4 +726,5 @@ const Booking = () => {
 };
 
 export default Booking;
+
 

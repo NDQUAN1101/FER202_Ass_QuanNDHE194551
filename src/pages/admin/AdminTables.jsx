@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { tableApi } from '../../services/api';
 import { useToast } from '../../context/ToastContext';
 import { Grid, Users, RefreshCw, CheckCircle, Ban } from 'lucide-react';
@@ -48,7 +48,7 @@ const AdminTables = () => {
       {/* Title */}
       <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 mb-4">
         <div>
-          <h2 className="text-white fw-bold mb-1">Sơ Đồ Quản Lý Bàn Ăn</h2>
+          <h2 className="text-heading fw-bold mb-1">Sơ Đồ Quản Lý Bàn Ăn</h2>
           <p className="text-muted small mb-0">Theo dõi trực quan trạng thái bàn theo từng khu vực và tầng lầu</p>
         </div>
         <button onClick={loadTables} className="btn-outline-custom d-flex align-items-center gap-1 small py-2">
@@ -61,7 +61,7 @@ const AdminTables = () => {
         <div className="col-md-4">
           <div className="glass-panel p-3 text-center">
             <span className="text-muted small">Tổng Số Bàn:</span>
-            <div className="fs-3 fw-bold text-white mt-1">{tables.length} Bàn</div>
+            <div className="fs-3 fw-bold text-heading mt-1">{tables.length} Bàn</div>
           </div>
         </div>
         <div className="col-md-4">
@@ -86,7 +86,7 @@ const AdminTables = () => {
       ) : (
         <div className="d-flex flex-column gap-4">
           <div className="glass-panel p-4">
-            <h5 className="text-white fw-bold mb-3 pb-2 border-bottom border-secondary border-opacity-25">
+            <h5 className="text-heading fw-bold mb-3 pb-2 border-bottom border-secondary border-opacity-25">
               Danh Sách Bàn Ăn Nhà Hàng
             </h5>
             <div className="row g-3">
@@ -103,7 +103,7 @@ const AdminTables = () => {
                       }}
                     >
                       <div className="d-flex justify-content-between align-items-center mb-2">
-                        <span className="fw-bold fs-5 text-white">{table.code}</span>
+                        <span className="fw-bold fs-5 text-heading">{table.code}</span>
                         <span className={isAvail ? 'badge-green' : 'badge-gold'}>
                           {isAvail ? 'Đang trống' : 'Đã đặt'}
                         </span>
@@ -111,7 +111,7 @@ const AdminTables = () => {
 
                       <div className="text-muted small mb-2">{table.area}</div>
 
-                      <div className="d-flex align-items-center gap-1 text-light small mb-3">
+                      <div className="d-flex align-items-center gap-1 text-secondary small mb-3">
                         <Users size={14} className="text-warning" />
                         <span>Sức chứa: {table.capacity} khách</span>
                       </div>
@@ -148,3 +148,4 @@ const AdminTables = () => {
 };
 
 export default AdminTables;
+
