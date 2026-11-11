@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { LayoutDashboard, UtensilsCrossed, CalendarCheck, Grid, PlusCircle, ArrowLeft, LogOut, ShieldCheck } from 'lucide-react';
+import { LayoutDashboard, UtensilsCrossed, CalendarCheck, Grid, PlusCircle, LogOut, ShieldCheck } from 'lucide-react';
 
 const AdminLayout = () => {
   const { user, logout } = useAuth();
@@ -20,7 +20,7 @@ const AdminLayout = () => {
         style={{ borderColor: 'var(--border-color)', zIndex: 100 }}
       >
         <div className="d-flex align-items-center gap-3">
-          <Link to="/" className="d-flex align-items-center gap-2 text-decoration-none">
+          <Link to="/" className="d-flex align-items-center gap-2 text-decoration-none" title="Bấm vào logo để về trang chủ">
             <div
               style={{
                 width: '36px',
@@ -42,12 +42,7 @@ const AdminLayout = () => {
         </div>
 
         <div className="d-flex align-items-center gap-3">
-          <Link to="/" className="btn btn-sm btn-outline-secondary text-dark d-flex align-items-center gap-1 rounded-3">
-            <ArrowLeft size={15} />
-            <span className="d-none d-sm-inline">Về Trang Chủ</span>
-          </Link>
-
-          <div className="d-flex align-items-center gap-2 ps-3 border-start">
+          <div className="d-flex align-items-center gap-2">
             <img
               src={user?.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100'}
               alt={user?.fullName}
@@ -141,5 +136,3 @@ const AdminLayout = () => {
 };
 
 export default AdminLayout;
-
-
