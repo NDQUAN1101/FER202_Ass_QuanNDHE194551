@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../context/ToastContext';
-import { LogIn, UserPlus, ShieldCheck, Utensils, Lock, Mail, User } from 'lucide-react';
+import { LogIn, UserPlus, Utensils, Lock, Mail, User } from 'lucide-react';
 
 const Login = () => {
   const [isRegisterMode, setIsRegisterMode] = useState(false);
@@ -16,8 +16,6 @@ const Login = () => {
   const { addToast } = useToast();
   const navigate = useNavigate();
   const location = useLocation();
-
-  const fromAdmin = location.state?.fromAdmin;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -106,13 +104,6 @@ const Login = () => {
               Đăng Ký
             </button>
           </div>
-
-          {fromAdmin && !isRegisterMode && (
-            <div className="alert alert-warning py-2 small d-flex align-items-center gap-2 mb-3">
-              <ShieldCheck size={18} className="flex-shrink-0" />
-              <span>Vui lòng đăng nhập với tài khoản Quản Trị Viên để tiếp tục!</span>
-            </div>
-          )}
 
           {error && (
             <div className="alert alert-danger py-2 small mb-3">
