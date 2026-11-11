@@ -53,8 +53,8 @@ const Login = () => {
     <div className="py-5 animate-fade-in d-flex align-items-center" style={{ minHeight: '75vh' }}>
       <div className="container" style={{ maxWidth: '480px' }}>
         <div
-          className="glass-panel p-4 p-md-5"
-          style={{ border: '1px solid var(--border-color)', boxShadow: '0 20px 40px rgba(0,0,0,0.5)' }}
+          className="glass-panel p-4 p-md-5 bg-white"
+          style={{ border: '1px solid var(--border-color)', boxShadow: '0 10px 30px rgba(0,0,0,0.06)' }}
         >
           {/* Logo & Header */}
           <div className="text-center mb-4">
@@ -64,7 +64,7 @@ const Login = () => {
             >
               <Utensils size={26} color="#ffffff" />
             </div>
-            <h3 className="text-white fw-bold mb-1">Đăng Nhập DineHub</h3>
+            <h3 className="fw-bold mb-1 text-heading">Đăng Nhập DineHub</h3>
             <p className="text-muted small">Truy cập để quản lý lịch đặt bàn hoặc thực đơn nhà hàng</p>
           </div>
 
@@ -84,7 +84,7 @@ const Login = () => {
           {/* Form */}
           <form onSubmit={handleSubmit} className="d-flex flex-column gap-3 mb-4">
             <div>
-              <label className="form-label text-light small fw-medium">Địa chỉ Email</label>
+              <label className="form-label small fw-semibold text-secondary">Địa chỉ Email</label>
               <div className="position-relative">
                 <Mail size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)' }} />
                 <input
@@ -98,7 +98,7 @@ const Login = () => {
             </div>
 
             <div>
-              <label className="form-label text-light small fw-medium">Mật khẩu</label>
+              <label className="form-label small fw-semibold text-secondary">Mật khẩu</label>
               <div className="position-relative">
                 <Lock size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)' }} />
                 <input
@@ -118,16 +118,16 @@ const Login = () => {
           </form>
 
           {/* Quick Demo Logins for Fast Grading */}
-          <div className="pt-3 border-top border-secondary border-opacity-50">
+          <div className="pt-3 border-top">
             <div className="small text-muted text-center mb-3 fw-semibold">
-              ⚡ Tài khoản mẫu (1-Click Đăng nhập chấm bài nhanh):
+              ⚡ Tài khoản mẫu (1-Click Đăng nhập nhanh):
             </div>
 
             <div className="d-flex flex-column gap-2">
               <button
                 type="button"
                 onClick={handleQuickLoginAdmin}
-                className="btn btn-sm btn-outline-warning d-flex align-items-center justify-content-center gap-2 py-2 fw-semibold"
+                className="btn btn-sm btn-outline-warning text-dark d-flex align-items-center justify-content-center gap-2 py-2 fw-semibold"
               >
                 <ShieldCheck size={16} />
                 <span>1-Click Đăng Nhập Quản Trị Viên (Admin)</span>
@@ -136,7 +136,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={handleQuickLoginUser}
-                className="btn btn-sm btn-dark text-light border border-secondary d-flex align-items-center justify-content-center gap-2 py-2"
+                className="btn btn-sm btn-light border text-dark d-flex align-items-center justify-content-center gap-2 py-2"
               >
                 <UserCheck size={16} />
                 <span>1-Click Đăng Nhập Khách Hàng (User)</span>

@@ -112,10 +112,10 @@ const Menu = () => {
       <div className="container">
         {/* Page Header */}
         <div className="text-center mb-5">
-          <span className="badge-gold mb-2 d-inline-block">Tuyển Chọn Tinh Hoa</span>
-          <h1 className="text-white fw-bold display-5 mb-2">Thực Đơn Nhà Hàng DineHub</h1>
+          <span className="badge-gold mb-2 d-inline-block shadow-sm">Tuyển Chọn Tinh Hoa</span>
+          <h1 className="fw-bold display-5 mb-2 text-heading">Thực Đơn Nhà Hàng DineHub</h1>
           <p className="text-muted mx-auto" style={{ maxWidth: '650px' }}>
-            Khám phá hương vị thượng hạng từ các món khai vị thanh tao, bò Wagyu trứ danh, hải sản cao cấp và rượu vang danh tiếng.
+            Khám phá hương vị phong phú từ các món khai vị thanh tao, bò hảo hạng, hải sản tươi sống và đồ uống cao cấp.
           </p>
         </div>
 
@@ -125,41 +125,32 @@ const Menu = () => {
             onClick={() => setSelectedCategory('all')}
             className={`btn px-3 py-2 rounded-pill fw-semibold transition-all ${
               selectedCategory === 'all'
-                ? 'btn-warning text-dark'
-                : 'btn-dark text-light border border-secondary border-opacity-50'
+                ? 'btn-warning text-dark shadow-sm'
+                : 'btn-light border text-secondary'
             }`}
-            style={{ fontSize: '0.9rem' }}
           >
-            Tất Cả Món ({foods.length})
+            Tất Cả Món
           </button>
-          {categories.map((cat) => {
-            const count = foods.filter((f) => f.categoryId === cat.id).length;
-            const isActive = selectedCategory === cat.id;
-            return (
-              <button
-                key={cat.id}
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`btn px-3 py-2 rounded-pill fw-semibold transition-all ${
-                  isActive
-                    ? 'btn-warning text-dark'
-                    : 'btn-dark text-light border border-secondary border-opacity-50'
-                }`}
-                style={{ fontSize: '0.9rem' }}
-              >
-                {cat.name} ({count})
-              </button>
-            );
-          })}
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setSelectedCategory(cat.id)}
+              className={`btn px-3 py-2 rounded-pill fw-semibold transition-all ${
+                selectedCategory === cat.id
+                  ? 'btn-warning text-dark shadow-sm'
+                  : 'btn-light border text-secondary'
+              }`}
+            >
+              {cat.name}
+            </button>
+          ))}
         </div>
 
-        {/* Filter & Search Bar Row */}
-        <div
-          className="p-3 mb-4 rounded-3"
-          style={{ backgroundColor: '#131b26', border: '1px solid var(--border-color)' }}
-        >
+        {/* Filters and Search Bar Container */}
+        <div className="glass-panel p-4 mb-5 shadow-sm bg-white">
           <div className="row g-3 align-items-center">
             {/* Search Input */}
-            <div className="col-lg-5 col-md-6">
+            <div className="col-lg-5">
               <div className="position-relative">
                 <Search
                   size={18}
@@ -169,51 +160,53 @@ const Menu = () => {
                 <input
                   type="text"
                   className="form-control form-control-custom ps-5"
-                  placeholder="Tìm theo tên món ăn, nguyên liệu, hương vị..."
+                  placeholder="Tìm kiếm theo tên món ăn hoặc mô tả..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
             </div>
 
-            {/* Sort Select */}
-            <div className="col-lg-4 col-md-6">
+            {/* Sort Options */}
+            <div className="col-md-6 col-lg-3">
               <div className="d-flex align-items-center gap-2">
-                <SlidersHorizontal size={18} className="text-warning flex-shrink-0" />
+                <SlidersHorizontal size={18} className="text-muted flex-shrink-0" />
                 <select
                   className="form-select form-select-custom"
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                 >
-                  <option value="default">Sắp xếp: Mặc định</option>
+                  <option value="default">Sắp xếp mặc định</option>
                   <option value="price-asc">Giá: Thấp đến Cao</option>
-                  <option value="price-desc">Giá: Cao đến Thấp</option>
+                  <option value="price-desc">Giá: Cao xuống Thấp</option>
                   <option value="rating-desc">Đánh giá cao nhất</option>
-                  <option value="time-asc">Chế biến nhanh nhất</option>
+                  <option value="time-asc">Thời gian chế biến nhanh</option>
                 </select>
               </div>
             </div>
 
-            {/* Price slider */}
-            <div className="col-lg-3 col-md-12">
-              <div className="d-flex justify-content-between text-muted small mb-1">
-                <span>Mức giá tối đa:</span>
-                <span className="text-warning fw-bold">{formatVND(maxPrice)}</span>
+            {/* Max Price Filter */}
+            <div className="col-md-6 col-lg-4">
+              <div className="d-flex flex-column gap-1">
+                <div className="d-flex justify-content-between small">
+                  <span className="text-secondary fw-medium">Khoảng giá tối đa:</span>
+                  <span className="text-warning fw-bold">{formatVND(maxPrice)}</span>
+                </div>
+                <input
+                  type="range"
+                  className="form-range"
+                  min="50000"
+                  max="1000000"
+                  step="25000"
+                  value={maxPrice}
+                  onChange={(e) => setMaxPrice(Number(e.target.value))}
+                />
               </div>
-              <input
-                type="range"
-                className="form-range"
-                min="100000"
-                max="1000000"
-                step="50000"
-                value={maxPrice}
-                onChange={(e) => setMaxPrice(Number(e.target.value))}
-              />
             </div>
           </div>
 
-          {/* Quick Filter Checkbox Toggles */}
-          <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 pt-3 mt-3 border-top border-secondary border-opacity-25">
+          {/* Quick Checkbox Filters */}
+          <div className="d-flex flex-wrap align-items-center justify-content-between gap-3 pt-3 border-top mt-3">
             <div className="d-flex flex-wrap gap-4">
               <div className="form-check">
                 <input
@@ -223,7 +216,7 @@ const Menu = () => {
                   checked={vegetarianOnly}
                   onChange={(e) => setVegetarianOnly(e.target.checked)}
                 />
-                <label className="form-check-label text-light small user-select-none" htmlFor="vegCheck">
+                <label className="form-check-label text-secondary small user-select-none" htmlFor="vegCheck">
                   Món chay (Vegetarian)
                 </label>
               </div>
@@ -236,7 +229,7 @@ const Menu = () => {
                   checked={specialOnly}
                   onChange={(e) => setSpecialOnly(e.target.checked)}
                 />
-                <label className="form-check-label text-light small user-select-none" htmlFor="specialCheck">
+                <label className="form-check-label text-secondary small user-select-none" htmlFor="specialCheck">
                   Món đặc sắc của Bếp trưởng
                 </label>
               </div>
@@ -249,7 +242,7 @@ const Menu = () => {
                   checked={inStockOnly}
                   onChange={(e) => setInStockOnly(e.target.checked)}
                 />
-                <label className="form-check-label text-light small user-select-none" htmlFor="stockCheck">
+                <label className="form-check-label text-secondary small user-select-none" htmlFor="stockCheck">
                   Chỉ hiện món còn hàng
                 </label>
               </div>
@@ -258,7 +251,7 @@ const Menu = () => {
             {/* Reset button */}
             <button
               onClick={handleResetFilters}
-              className="btn btn-sm btn-outline-secondary text-light d-flex align-items-center gap-1"
+              className="btn btn-sm btn-outline-secondary d-flex align-items-center gap-1"
             >
               <RotateCcw size={14} />
               <span>Đặt lại bộ lọc</span>
@@ -285,9 +278,9 @@ const Menu = () => {
             <div className="text-muted mt-2">Đang tải danh sách món ăn...</div>
           </div>
         ) : filteredFoods.length === 0 ? (
-          <div className="text-center py-5 glass-panel p-5 my-4">
+          <div className="text-center py-5 glass-panel p-5 my-4 bg-white">
             <Utensils size={48} className="text-muted mb-3 opacity-50" />
-            <h4 className="text-white fw-bold mb-2">Không tìm thấy món ăn phù hợp</h4>
+            <h4 className="fw-bold mb-2 text-heading">Không tìm thấy món ăn phù hợp</h4>
             <p className="text-muted mb-4">Vui lòng thử tìm kiếm với từ khóa khác hoặc bỏ bớt các tiêu chí lọc.</p>
             <button onClick={handleResetFilters} className="btn-primary-custom">
               <RotateCcw size={16} /> Xem Tất Cả Món Ăn
@@ -307,7 +300,7 @@ const Menu = () => {
         {totalPages > 1 && (
           <div className="d-flex justify-content-center align-items-center gap-2 mt-4">
             <button
-              className="btn btn-dark border border-secondary"
+              className="btn btn-light border"
               disabled={currentPage === 1}
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
             >
@@ -319,7 +312,7 @@ const Menu = () => {
                 key={page}
                 onClick={() => setCurrentPage(page)}
                 className={`btn px-3 py-1 fw-bold ${
-                  currentPage === page ? 'btn-warning text-dark' : 'btn-dark text-light border border-secondary'
+                  currentPage === page ? 'btn-warning text-dark' : 'btn-light border'
                 }`}
               >
                 {page}
@@ -327,7 +320,7 @@ const Menu = () => {
             ))}
 
             <button
-              className="btn btn-dark border border-secondary"
+              className="btn btn-light border"
               disabled={currentPage === totalPages}
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
             >

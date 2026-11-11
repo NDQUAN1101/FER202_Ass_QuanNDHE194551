@@ -54,18 +54,18 @@ const FoodCard = ({ food, onQuickView }) => {
               left: 0,
               right: 0,
               bottom: 0,
-              backgroundColor: 'rgba(0,0,0,0.6)',
+              backgroundColor: 'rgba(255,255,255,0.75)',
               backdropFilter: 'blur(2px)',
             }}
           >
-            <span className="badge bg-danger px-3 py-2 fs-6">Tạm Hết Món</span>
+            <span className="badge bg-danger px-3 py-2 fs-6 shadow-sm">Tạm Hết Món</span>
           </div>
         )}
 
         {/* Prep Time */}
         <div
-          className="position-absolute bottom-0 end-0 m-2 px-2 py-1 rounded small d-flex align-items-center gap-1 text-white"
-          style={{ backgroundColor: 'rgba(15, 23, 42, 0.85)', backdropFilter: 'blur(4px)', fontSize: '0.75rem' }}
+          className="position-absolute bottom-0 end-0 m-2 px-2 py-1 rounded small d-flex align-items-center gap-1 text-dark shadow-sm"
+          style={{ backgroundColor: 'rgba(255, 255, 255, 0.92)', backdropFilter: 'blur(4px)', fontSize: '0.75rem', fontWeight: 600 }}
         >
           <Clock size={12} className="text-warning" />
           <span>{food.preparationTime} phút</span>
@@ -85,7 +85,7 @@ const FoodCard = ({ food, onQuickView }) => {
           </div>
 
           {/* Name */}
-          <h6 className="text-white fw-bold mb-2 text-truncate" title={food.name} style={{ fontSize: '1rem' }}>
+          <h6 className="fw-bold mb-2 text-truncate text-heading" title={food.name} style={{ fontSize: '1.02rem' }}>
             {food.name}
           </h6>
 
@@ -98,7 +98,7 @@ const FoodCard = ({ food, onQuickView }) => {
               WebkitBoxOrient: 'vertical',
               overflow: 'hidden',
               minHeight: '2.5rem',
-              lineHeight: '1.3',
+              lineHeight: '1.4',
             }}
           >
             {food.description}
@@ -106,7 +106,7 @@ const FoodCard = ({ food, onQuickView }) => {
         </div>
 
         {/* Price & Action Button */}
-        <div className="d-flex align-items-center justify-content-between pt-2 border-top border-secondary border-opacity-25 mt-2">
+        <div className="d-flex align-items-center justify-content-between pt-2 border-top border-light-subtle mt-2">
           <div>
             <div className="text-warning fw-bold fs-6">{formatVND(food.price)}</div>
             {food.originalPrice && food.originalPrice > food.price && (
