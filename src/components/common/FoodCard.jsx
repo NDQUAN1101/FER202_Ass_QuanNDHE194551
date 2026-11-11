@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../../context/CartContext';
 import { useToast } from '../../context/ToastContext';
-import { Star, Clock, Plus, Flame, Leaf } from 'lucide-react';
+import { Clock, Plus, Flame, Leaf } from 'lucide-react';
 
-const FoodCard = ({ food, onQuickView }) => {
+const FoodCard = ({ food }) => {
   const { addToCart } = useCart();
   const { addToast } = useToast();
 
@@ -75,17 +75,8 @@ const FoodCard = ({ food, onQuickView }) => {
       {/* Card Content */}
       <div className="p-3 d-flex flex-column flex-grow-1 justify-content-between">
         <div>
-          {/* Rating */}
-          <div className="d-flex align-items-center gap-1 mb-1 small text-warning">
-            <Star size={14} fill="#f59e0b" color="#f59e0b" />
-            <span className="fw-bold">{food.rating}</span>
-            <span className="text-muted" style={{ fontSize: '0.75rem' }}>
-              ({food.reviewCount} đánh giá)
-            </span>
-          </div>
-
           {/* Name */}
-          <h6 className="fw-bold mb-2 text-truncate text-heading" title={food.name} style={{ fontSize: '1.02rem' }}>
+          <h6 className="fw-bold mb-2 text-truncate text-heading" title={food.name} style={{ fontSize: '1.05rem' }}>
             {food.name}
           </h6>
 

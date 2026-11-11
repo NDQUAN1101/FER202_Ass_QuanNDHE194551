@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { foodApi, categoryApi } from '../../services/api';
 import FoodCard from '../../components/common/FoodCard';
 import { Search, SlidersHorizontal, Utensils, RotateCcw, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -169,7 +169,6 @@ const Menu = () => {
                   <option value="default">Sắp xếp mặc định</option>
                   <option value="price-asc">Giá: Thấp đến Cao</option>
                   <option value="price-desc">Giá: Cao xuống Thấp</option>
-                  <option value="rating-desc">Đánh giá cao nhất</option>
                   <option value="time-asc">Thời gian chế biến nhanh</option>
                 </select>
               </div>

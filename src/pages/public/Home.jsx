@@ -70,8 +70,8 @@ const Home = () => {
                   <small className="text-muted fw-medium">Nguyên Liệu Tươi Sống</small>
                 </div>
                 <div className="col-4">
-                  <div className="fw-bold fs-3" style={{ color: 'var(--primary-color)' }}>4.9/5</div>
-                  <small className="text-muted fw-medium">Đánh Giá Hài Lòng</small>
+                  <div className="fw-bold fs-3" style={{ color: 'var(--primary-color)' }}>1000+</div>
+                  <small className="text-muted fw-medium">Khách Hàng Hài Lòng</small>
                 </div>
               </div>
             </div>
