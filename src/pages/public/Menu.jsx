@@ -1,7 +1,7 @@
 ﻿import React, { useState, useEffect, useMemo } from 'react';
 import { foodApi, categoryApi } from '../../services/api';
 import FoodCard from '../../components/common/FoodCard';
-import { Search, Filter, SlidersHorizontal, Utensils, RotateCcw, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Search, SlidersHorizontal, Utensils, RotateCcw, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ITEMS_PER_PAGE = 8;
 
@@ -17,7 +17,6 @@ const Menu = () => {
   const [vegetarianOnly, setVegetarianOnly] = useState(false);
   const [specialOnly, setSpecialOnly] = useState(false);
   const [inStockOnly, setInStockOnly] = useState(false);
-  const [maxPrice, setMaxPrice] = useState(1000000);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -65,10 +64,6 @@ const Menu = () => {
         if (inStockOnly && food.status === 'Hết món') {
           return false;
         }
-        // Price limit
-        if (food.price > maxPrice) {
-          return false;
-        }
         return true;
       })
       .sort((a, b) => {
@@ -78,12 +73,12 @@ const Menu = () => {
         if (sortBy === 'time-asc') return a.preparationTime - b.preparationTime;
         return 0; // default
       });
-  }, [foods, selectedCategory, searchQuery, sortBy, vegetarianOnly, specialOnly, inStockOnly, maxPrice]);
+  }, [foods, selectedCategory, searchQuery, sortBy, vegetarianOnly, specialOnly, inStockOnly]);
 
   // Reset pagination when filter changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [selectedCategory, searchQuery, sortBy, vegetarianOnly, specialOnly, inStockOnly, maxPrice]);
+  }, [selectedCategory, searchQuery, sortBy, vegetarianOnly, specialOnly, inStockOnly]);
 
   // Pagination calculation
   const totalPages = Math.ceil(filteredFoods.length / ITEMS_PER_PAGE);
@@ -99,12 +94,7 @@ const Menu = () => {
     setVegetarianOnly(false);
     setSpecialOnly(false);
     setInStockOnly(false);
-    setMaxPrice(1000000);
     setCurrentPage(1);
-  };
-
-  const formatVND = (price) => {
-    return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price);
   };
 
   return (
@@ -150,12 +140,12 @@ const Menu = () => {
         <div className="glass-panel p-4 mb-5 shadow-sm bg-white">
           <div className="row g-3 align-items-center">
             {/* Search Input */}
-            <div className="col-lg-5">
+            <div className="col-lg-8 col-md-7">
               <div className="position-relative">
                 <Search
                   size={18}
                   className="position-absolute text-muted"
-                  style={{ top: '50%', left: '14px', transform: 'translateY(-50%)' }}
+                  style={{ top: '50%', left: '16px', transform: 'translateY(-50%)', zIndex: 3 }}
                 />
                 <input
                   type="text"
@@ -168,7 +158,7 @@ const Menu = () => {
             </div>
 
             {/* Sort Options */}
-            <div className="col-md-6 col-lg-3">
+            <div className="col-lg-4 col-md-5">
               <div className="d-flex align-items-center gap-2">
                 <SlidersHorizontal size={18} className="text-muted flex-shrink-0" />
                 <select
@@ -182,25 +172,6 @@ const Menu = () => {
                   <option value="rating-desc">Đánh giá cao nhất</option>
                   <option value="time-asc">Thời gian chế biến nhanh</option>
                 </select>
-              </div>
-            </div>
-
-            {/* Max Price Filter */}
-            <div className="col-md-6 col-lg-4">
-              <div className="d-flex flex-column gap-1">
-                <div className="d-flex justify-content-between small">
-                  <span className="text-secondary fw-medium">Khoảng giá tối đa:</span>
-                  <span className="text-warning fw-bold">{formatVND(maxPrice)}</span>
-                </div>
-                <input
-                  type="range"
-                  className="form-range"
-                  min="50000"
-                  max="1000000"
-                  step="25000"
-                  value={maxPrice}
-                  onChange={(e) => setMaxPrice(Number(e.target.value))}
-                />
               </div>
             </div>
           </div>
@@ -334,5 +305,3 @@ const Menu = () => {
 };
 
 export default Menu;
-
-
