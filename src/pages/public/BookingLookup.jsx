@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { reservationApi, tableApi } from '../../services/api';
+import { reservationApi } from '../../services/api';
 import { useToast } from '../../context/ToastContext';
-import { Search, Calendar, Clock, MapPin, Users, AlertCircle, XCircle } from 'lucide-react';
+import { Search, Calendar, MapPin, Users, AlertCircle, XCircle } from 'lucide-react';
 
 const BookingLookup = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -33,7 +33,6 @@ const BookingLookup = () => {
       try {
         await reservationApi.updateStatus(resId, 'Cancelled');
         addToast('Đã hủy đơn đặt bàn thành công!', 'success');
-        // Update state locally
         setResults(prev => prev.map(r => r.id === resId ? { ...r, status: 'Cancelled' } : r));
       } catch (err) {
         console.error(err);
@@ -64,17 +63,17 @@ const BookingLookup = () => {
       <div className="container" style={{ maxWidth: '900px' }}>
         {/* Header */}
         <div className="text-center mb-5">
-          <span className="badge-gold mb-2 d-inline-block">Tra Cứu Lịch Hẹn</span>
-          <h1 className="text-white fw-bold display-5 mb-2">Kiểm Tra Đơn Đặt Bàn</h1>
+          <span className="badge-gold mb-2 d-inline-block shadow-sm">Tra Cứu Lịch Hẹn</span>
+          <h1 className="fw-bold display-5 mb-2 text-heading">Kiểm Tra Đơn Đặt Bàn</h1>
           <p className="text-muted mx-auto" style={{ maxWidth: '600px' }}>
-            Nhập Mã đặt chỗ (ví dụ: <code>DH-20261016-01</code>) hoặc Số điện thoại dùng khi đăng ký để kiểm tra tình trạng bàn ăn của quý khách.
+            Nhập Mã đặt chỗ (ví dụ: <code className="text-primary fw-bold">DH-20261016-01</code>) hoặc Số điện thoại dùng khi đăng ký để kiểm tra tình trạng bàn ăn của quý khách.
           </p>
         </div>
 
         {/* Search Bar Box */}
         <div
-          className="p-4 rounded-4 mb-5"
-          style={{ backgroundColor: '#131b26', border: '1px solid var(--border-color)', boxShadow: '0 10px 30px rgba(0,0,0,0.4)' }}
+          className="p-4 rounded-4 mb-5 bg-white shadow-sm"
+          style={{ border: '1px solid var(--border-color)' }}
         >
           <form onSubmit={handleSearch} className="row g-3">
             <div className="col-md-9">
@@ -82,11 +81,11 @@ const BookingLookup = () => {
                 <Search
                   size={20}
                   className="position-absolute text-muted"
-                  style={{ top: '50%', left: '16px', transform: 'translateY(-50%)' }}
+                  style={{ top: '50%', left: '16px', transform: 'translateY(-50%)', zIndex: 3 }}
                 />
                 <input
                   type="text"
-                  className="form-control form-control-custom ps-5 py-3"
+                  className="form-control form-control-custom input-with-icon py-3"
                   placeholder="Nhập Mã đặt bàn (DH-...) hoặc Số điện thoại của bạn..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -106,15 +105,15 @@ const BookingLookup = () => {
           </form>
 
           {/* Quick Test Demo Button */}
-          <div className="mt-3 pt-3 border-top border-secondary border-opacity-25 d-flex align-items-center gap-2 small text-muted">
-            <span>Gợi ý tra cứu mẫu:</span>
+          <div className="mt-3 pt-3 border-top d-flex align-items-center gap-2 small text-muted">
+            <span className="fw-medium">Gợi ý tra cứu mẫu:</span>
             <button
               type="button"
               onClick={() => {
                 setSearchTerm('0987654321');
-                reservationApi.getByIdOrPhone('0987654321').then(data => setResults(data));
+                reservationApi.getByIdOrPhone('0987654321').then(setResults);
               }}
-              className="btn btn-sm btn-outline-warning py-0 px-2 rounded-pill"
+              className="btn btn-sm btn-light border text-dark fw-semibold"
             >
               Thử số 0987654321
             </button>
@@ -122,28 +121,28 @@ const BookingLookup = () => {
               type="button"
               onClick={() => {
                 setSearchTerm('DH-20261016-01');
-                reservationApi.getByIdOrPhone('DH-20261016-01').then(data => setResults(data));
+                reservationApi.getByIdOrPhone('DH-20261016-01').then(setResults);
               }}
-              className="btn btn-sm btn-outline-warning py-0 px-2 rounded-pill"
+              className="btn btn-sm btn-light border text-dark fw-semibold"
             >
               Thử mã DH-20261016-01
             </button>
           </div>
         </div>
 
-        {/* Results Area */}
+        {/* Results Display */}
         {results !== null && (
           <div>
             <div className="d-flex justify-content-between align-items-center mb-3">
-              <h5 className="text-white fw-bold mb-0">
-                Kết Quả Tìm Kiếm ({results.length})
+              <h5 className="fw-bold mb-0 text-heading">
+                Kết Quả Tra Cứu ({results.length})
               </h5>
             </div>
 
             {results.length === 0 ? (
-              <div className="glass-panel p-5 text-center my-3">
-                <AlertCircle size={44} className="text-warning mb-3 opacity-50" />
-                <h5 className="text-white fw-bold">Không tìm thấy đơn đặt bàn nào</h5>
+              <div className="glass-panel p-5 text-center my-3 bg-white shadow-sm">
+                <AlertCircle size={44} className="text-warning mb-3 opacity-75" />
+                <h5 className="fw-bold text-heading">Không tìm thấy đơn đặt bàn nào</h5>
                 <p className="text-muted small">
                   Quý khách vui lòng kiểm tra lại chính xác Mã đơn hoặc Số điện thoại đã đăng ký.
                 </p>
@@ -153,14 +152,14 @@ const BookingLookup = () => {
                 {results.map((res) => (
                   <div
                     key={res.id}
-                    className="glass-panel p-4 position-relative"
+                    className="glass-panel p-4 position-relative bg-white shadow-sm"
                     style={{ border: '1px solid var(--border-color)' }}
                   >
-                    <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-start gap-2 pb-3 mb-3 border-bottom border-secondary border-opacity-25">
+                    <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-start gap-2 pb-3 mb-3 border-bottom">
                       <div>
                         <div className="small text-muted">Mã Đặt Bàn:</div>
                         <span className="fs-5 fw-bold text-warning">{res.id}</span>
-                        <div className="text-white fw-medium mt-1">Khách hàng: {res.customerName}</div>
+                        <div className="fw-bold mt-1 text-heading">Khách hàng: {res.customerName}</div>
                       </div>
                       <div className="d-flex align-items-center gap-2">
                         {renderStatusBadge(res.status)}
@@ -183,8 +182,8 @@ const BookingLookup = () => {
                           <Calendar size={15} className="text-warning" />
                           <span>Thời gian dùng bữa:</span>
                         </div>
-                        <div className="text-light fw-medium">
-                          {res.timeSlot} - {res.date}
+                        <div className="fw-semibold text-secondary">
+                          {res.timeSlot} - Ngày {res.date}
                         </div>
                       </div>
 
@@ -193,7 +192,7 @@ const BookingLookup = () => {
                           <Users size={15} className="text-warning" />
                           <span>Số lượng khách:</span>
                         </div>
-                        <div className="text-light fw-medium">{res.guestsCount} người</div>
+                        <div className="fw-semibold text-secondary">{res.guestsCount} người</div>
                       </div>
 
                       <div className="col-md-4 col-sm-6">
@@ -201,19 +200,19 @@ const BookingLookup = () => {
                           <MapPin size={15} className="text-warning" />
                           <span>Số điện thoại:</span>
                         </div>
-                        <div className="text-light fw-medium">{res.phone}</div>
+                        <div className="fw-semibold text-secondary">{res.phone}</div>
                       </div>
                     </div>
 
                     {/* Pre-ordered dishes if any */}
                     {res.orderItems && res.orderItems.length > 0 && (
-                      <div className="mt-3 pt-3 border-top border-secondary border-opacity-25">
+                      <div className="mt-3 pt-3 border-top">
                         <div className="small text-muted mb-2">Món ăn chuẩn bị trước:</div>
                         <div className="d-flex flex-wrap gap-2">
                           {res.orderItems.map((item, idx) => (
                             <span
                               key={idx}
-                              className="badge bg-dark border border-secondary px-3 py-2 text-light"
+                              className="badge bg-light text-dark border px-3 py-2 fw-medium"
                             >
                               {item.foodName} &times; <strong>{item.quantity}</strong> ({formatVND(item.total)})
                             </span>

@@ -29,7 +29,7 @@ const Contact = () => {
         {/* Title */}
         <div className="text-center mb-5">
           <span className="badge-gold mb-2 d-inline-block">Kết Nối Với Chúng Tôi</span>
-          <h1 className="text-white fw-bold display-5 mb-2">Liên Hệ & Hỗ Trợ Đặt Tiệc</h1>
+          <h1 className="text-heading fw-bold display-5 mb-2">Liên Hệ & Hỗ Trợ Đặt Tiệc</h1>
           <p className="text-muted mx-auto" style={{ maxWidth: '600px' }}>
             Quý khách có thắc mắc hoặc cần tư vấn tổ chức sự kiện đặc biệt, đừng ngần ngại gửi lời nhắn cho Ngon.
           </p>
@@ -39,7 +39,7 @@ const Contact = () => {
           {/* Contact Information & Map */}
           <div className="col-lg-5">
             <div className="glass-panel p-4 h-100">
-              <h4 className="text-white fw-bold mb-4">Thông Tin Nhà Hàng</h4>
+              <h4 className="text-heading fw-bold mb-4">Thông Tin Nhà Hàng</h4>
 
               <div className="d-flex flex-column gap-4 mb-4">
                 <div className="d-flex align-items-start gap-3">
@@ -50,7 +50,7 @@ const Contact = () => {
                     <MapPin size={22} />
                   </div>
                   <div>
-                    <h6 className="text-white fw-bold mb-1">Địa Chỉ Nhà Hàng</h6>
+                    <h6 className="text-heading fw-bold mb-1">Địa Chỉ Nhà Hàng</h6>
                     <p className="text-muted small mb-0">
                       Khu Công Nghệ Cao Hòa Lạc, Huyện Thạch Thất, TP. Hà Nội (FPT University Hà Nội)
                     </p>
@@ -65,7 +65,7 @@ const Contact = () => {
                     <Phone size={22} />
                   </div>
                   <div>
-                    <h6 className="text-white fw-bold mb-1">Hotline Đặt Bàn</h6>
+                    <h6 className="text-heading fw-bold mb-1">Hotline Đặt Bàn</h6>
                     <p className="text-muted small mb-0">0987 654 321 - 1900 6868</p>
                   </div>
                 </div>
@@ -78,8 +78,8 @@ const Contact = () => {
                     <Mail size={22} />
                   </div>
                   <div>
-                    <h6 className="text-white fw-bold mb-1">Hòm Thư Điện Tử</h6>
-                    <p className="text-muted small mb-0">contact@Ngon.restaurant.vn</p>
+                    <h6 className="text-heading fw-bold mb-1">Hòm Thư Điện Tử</h6>
+                    <p className="text-muted small mb-0">contact@ngon.vn</p>
                   </div>
                 </div>
 
@@ -91,7 +91,7 @@ const Contact = () => {
                     <Clock size={22} />
                   </div>
                   <div>
-                    <h6 className="text-white fw-bold mb-1">Thời Gian Hoạt Động</h6>
+                    <h6 className="text-heading fw-bold mb-1">Thời Gian Hoạt Động</h6>
                     <p className="text-muted small mb-0">
                       Thứ Hai - Chủ Nhật: 10:00 - 23:00 (Kể cả ngày lễ)
                     </p>
@@ -113,7 +113,7 @@ const Contact = () => {
                   className="position-absolute inset-0 d-flex align-items-center justify-content-center text-center p-3"
                   style={{ top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(15, 23, 42, 0.7)' }}
                 >
-                  <div className="text-white small fw-semibold">
+                  <div className="text-heading small fw-semibold">
                     📍 Vị trí đắc địa - Có bãi đỗ xe ô tô và xe máy rộng rãi miễn phí
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const Contact = () => {
           {/* Contact Message Form */}
           <div className="col-lg-7">
             <div className="glass-panel p-4 p-md-5">
-              <h4 className="text-white fw-bold mb-3">Gửi Thắc Mắc & Góp Ý</h4>
+              <h4 className="text-heading fw-bold mb-3">Gửi Thắc Mắc & Góp Ý</h4>
               <p className="text-muted small mb-4">
                 Đội ngũ lễ tân và quản lý Ngon sẽ phản hồi lại bạn qua số điện thoại hoặc email trong vòng 30 phút.
               </p>
@@ -132,7 +132,7 @@ const Contact = () => {
               {submitted ? (
                 <div className="text-center py-5">
                   <CheckCircle size={56} className="text-success mb-3" />
-                  <h4 className="text-white fw-bold mb-2">Đã Gửi Tin Nhắn Thành Công!</h4>
+                  <h4 className="text-heading fw-bold mb-2">Đã Gửi Tin Nhắn Thành Công!</h4>
                   <p className="text-muted small mb-4">
                     Cảm ơn bạn đã liên hệ với Ngon. Chúng tôi sẽ liên lạc với bạn trong thời gian sớm nhất.
                   </p>
@@ -149,7 +149,7 @@ const Contact = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="row g-3">
                   <div className="col-md-6">
-                    <label className="form-label text-light small fw-medium">
+                    <label className="form-label text-secondary small fw-medium">
                       Họ và tên <span className="text-danger">*</span>
                     </label>
                     <input
@@ -163,7 +163,7 @@ const Contact = () => {
                   </div>
 
                   <div className="col-md-6">
-                    <label className="form-label text-light small fw-medium">
+                    <label className="form-label text-secondary small fw-medium">
                       Số điện thoại <span className="text-danger">*</span>
                     </label>
                     <input
@@ -177,7 +177,7 @@ const Contact = () => {
                   </div>
 
                   <div className="col-md-6">
-                    <label className="form-label text-light small fw-medium">Địa chỉ Email</label>
+                    <label className="form-label text-secondary small fw-medium">Địa chỉ Email</label>
                     <input
                       type="email"
                       className="form-control form-control-custom"
@@ -188,7 +188,7 @@ const Contact = () => {
                   </div>
 
                   <div className="col-md-6">
-                    <label className="form-label text-light small fw-medium">Chủ đề cần tư vấn</label>
+                    <label className="form-label text-secondary small fw-medium">Chủ đề cần tư vấn</label>
                     <select
                       className="form-select form-select-custom"
                       value={formData.subject}
@@ -202,7 +202,7 @@ const Contact = () => {
                   </div>
 
                   <div className="col-12">
-                    <label className="form-label text-light small fw-medium">
+                    <label className="form-label text-secondary small fw-medium">
                       Nội dung tin nhắn <span className="text-danger">*</span>
                     </label>
                     <textarea
@@ -232,4 +232,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
 

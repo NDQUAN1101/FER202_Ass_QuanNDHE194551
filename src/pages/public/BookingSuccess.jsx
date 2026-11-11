@@ -42,7 +42,7 @@ const BookingSuccess = () => {
             <CheckCircle2 size={44} color="#ffffff" />
           </div>
 
-          <h2 className="text-white fw-bold display-6 mb-2">Đặt Bàn Thành Công!</h2>
+          <h2 className="text-heading fw-bold display-6 mb-2">Đặt Bàn Thành Công!</h2>
           <p className="text-muted mb-4">
             Cảm ơn quý khách <strong>{reservation.customerName}</strong> đã lựa chọn Ngon. Nhân viên chăm sóc khách hàng sẽ liên hệ xác nhận bàn trong vòng 10 phút.
           </p>
@@ -50,7 +50,7 @@ const BookingSuccess = () => {
           {/* Reservation Code Box */}
           <div
             className="p-3 rounded-4 d-inline-flex align-items-center gap-3 mb-4"
-            style={{ backgroundColor: '#131b26', border: '1px dashed var(--primary-color)' }}
+            style={{ backgroundColor: '#ffffff', border: '1px dashed var(--primary-color)' }}
           >
             <div>
               <div className="small text-muted">Mã Đặt Bàn Của Quý Khách:</div>
@@ -68,16 +68,16 @@ const BookingSuccess = () => {
           {/* Details breakdown card */}
           <div
             className="text-start p-4 rounded-3 mb-4"
-            style={{ backgroundColor: '#182232', border: '1px solid var(--border-color)' }}
+            style={{ backgroundColor: '#ffffff', border: '1px solid var(--border-color)' }}
           >
-            <h5 className="text-white fw-bold mb-3 pb-2 border-bottom border-secondary border-opacity-25">
+            <h5 className="text-heading fw-bold mb-3 pb-2 border-bottom border-secondary border-opacity-25">
               Tóm Tắt Lịch Hẹn
             </h5>
 
             <div className="row g-3">
               <div className="col-sm-6">
                 <div className="small text-muted">Thời gian đến:</div>
-                <div className="text-white fw-medium">
+                <div className="text-heading fw-medium">
                   {reservation.timeSlot} - Ngày {reservation.date}
                 </div>
               </div>
@@ -91,7 +91,7 @@ const BookingSuccess = () => {
 
               <div className="col-sm-6">
                 <div className="small text-muted">Số lượng khách:</div>
-                <div className="text-white fw-medium">{reservation.guestsCount} người</div>
+                <div className="text-heading fw-medium">{reservation.guestsCount} người</div>
               </div>
 
               <div className="col-sm-6">
@@ -103,18 +103,18 @@ const BookingSuccess = () => {
 
               <div className="col-sm-6">
                 <div className="small text-muted">Số điện thoại liên hệ:</div>
-                <div className="text-white fw-medium">{reservation.phone}</div>
+                <div className="text-heading fw-medium">{reservation.phone}</div>
               </div>
 
               <div className="col-sm-6">
                 <div className="small text-muted">Email xác nhận:</div>
-                <div className="text-white fw-medium">{reservation.email}</div>
+                <div className="text-heading fw-medium">{reservation.email}</div>
               </div>
 
               {reservation.specialRequest && (
                 <div className="col-12">
                   <div className="small text-muted">Yêu cầu đặc biệt:</div>
-                  <div className="text-light fst-italic">"{reservation.specialRequest}"</div>
+                  <div className="text-secondary fst-italic">"{reservation.specialRequest}"</div>
                 </div>
               )}
             </div>
@@ -122,16 +122,16 @@ const BookingSuccess = () => {
             {/* Pre-ordered items if any */}
             {reservation.orderItems && reservation.orderItems.length > 0 && (
               <div className="mt-4 pt-3 border-top border-secondary border-opacity-25">
-                <h6 className="text-white fw-bold mb-2">Món Ăn Chuẩn Bị Sẵn:</h6>
+                <h6 className="text-heading fw-bold mb-2">Món Ăn Chuẩn Bị Sẵn:</h6>
                 <div className="d-flex flex-column gap-2 mb-2">
                   {reservation.orderItems.map((item, idx) => (
-                    <div key={idx} className="d-flex justify-content-between text-light small">
+                    <div key={idx} className="d-flex justify-content-between text-secondary small">
                       <span>{item.foodName} &times; {item.quantity}</span>
                       <span className="text-warning fw-bold">{formatVND(item.total)}</span>
                     </div>
                   ))}
                 </div>
-                <div className="d-flex justify-content-between text-white fw-bold pt-2 border-top border-secondary border-opacity-25">
+                <div className="d-flex justify-content-between text-heading fw-bold pt-2 border-top border-secondary border-opacity-25">
                   <span>Tổng tiền món:</span>
                   <span className="text-warning fs-6">{formatVND(reservation.totalAmount)}</span>
                 </div>
@@ -151,7 +151,7 @@ const BookingSuccess = () => {
 
             <Link
               to="/booking-lookup"
-              className="btn btn-dark text-light border border-secondary d-flex align-items-center gap-2 px-3 py-2 rounded-3"
+              className="btn btn-light text-secondary border border-secondary d-flex align-items-center gap-2 px-3 py-2 rounded-3"
             >
               <span>Tra Cứu Tiến Độ Đơn</span>
               <ArrowRight size={16} />
@@ -168,4 +168,5 @@ const BookingSuccess = () => {
 };
 
 export default BookingSuccess;
+
 
