@@ -41,8 +41,6 @@ const AdminTables = () => {
   const availableCount = tables.filter(t => t.status === 'Available').length;
   const reservedCount = tables.filter(t => t.status === 'Reserved').length;
 
-  const areas = ['Tầng 1 - Sân vườn thoáng đãng', 'Tầng 2 - Đại sảnh máy lạnh ấm cúng', 'Tầng 3 - Phòng VIP Hoàng Gia (Riêng tư)', 'Tầng 3 - Phòng VIP Panorama (View triệu đô)'];
-
   return (
     <div className="animate-fade-in">
       {/* Title */}
@@ -59,19 +57,19 @@ const AdminTables = () => {
       {/* Overview Stat Strip */}
       <div className="row g-3 mb-4">
         <div className="col-md-4">
-          <div className="glass-panel p-3 text-center">
+          <div className="glass-panel p-3 text-center bg-white shadow-sm">
             <span className="text-muted small">Tổng Số Bàn:</span>
             <div className="fs-3 fw-bold text-heading mt-1">{tables.length} Bàn</div>
           </div>
         </div>
         <div className="col-md-4">
-          <div className="glass-panel p-3 text-center">
+          <div className="glass-panel p-3 text-center bg-white shadow-sm">
             <span className="text-muted small">Bàn Đang Trống (Available):</span>
             <div className="fs-3 fw-bold text-success mt-1">{availableCount} Bàn</div>
           </div>
         </div>
         <div className="col-md-4">
-          <div className="glass-panel p-3 text-center">
+          <div className="glass-panel p-3 text-center bg-white shadow-sm">
             <span className="text-muted small">Bàn Đã Đặt / Có Khách (Reserved):</span>
             <div className="fs-3 fw-bold text-warning mt-1">{reservedCount} Bàn</div>
           </div>
@@ -85,8 +83,8 @@ const AdminTables = () => {
         </div>
       ) : (
         <div className="d-flex flex-column gap-4">
-          <div className="glass-panel p-4">
-            <h5 className="text-heading fw-bold mb-3 pb-2 border-bottom border-secondary border-opacity-25">
+          <div className="glass-panel p-4 bg-white shadow-sm">
+            <h5 className="text-heading fw-bold mb-3 pb-2 border-bottom">
               Danh Sách Bàn Ăn Nhà Hàng
             </h5>
             <div className="row g-3">
@@ -95,11 +93,10 @@ const AdminTables = () => {
                 return (
                   <div key={table.id} className="col-xl-3 col-lg-4 col-sm-6">
                     <div
-                      className="p-3 rounded-3 h-100 position-relative transition-all"
+                      className="p-3 rounded-4 h-100 position-relative transition-all shadow-sm"
                       style={{
-                        backgroundColor: '#182232',
-                        border: isAvail ? '1px solid rgba(16, 185, 129, 0.4)' : '1px solid rgba(245, 158, 11, 0.4)',
-                        boxShadow: isAvail ? '0 4px 15px rgba(16, 185, 129, 0.05)' : '0 4px 15px rgba(245, 158, 11, 0.08)',
+                        backgroundColor: isAvail ? '#f0fdf4' : '#fffbeb',
+                        border: isAvail ? '1.5px solid #86efac' : '1.5px solid #fde047',
                       }}
                     >
                       <div className="d-flex justify-content-between align-items-center mb-2">
@@ -113,24 +110,26 @@ const AdminTables = () => {
 
                       <div className="d-flex align-items-center gap-1 text-secondary small mb-3">
                         <Users size={14} className="text-warning" />
-                        <span>Sức chứa: {table.capacity} khách</span>
+                        <span className="fw-semibold">Sức chứa: {table.capacity} khách</span>
                       </div>
 
                       <button
                         onClick={() => handleToggleStatus(table)}
-                        className={`btn btn-sm w-100 d-flex align-items-center justify-content-center gap-1 py-1 rounded-2 ${
-                          isAvail ? 'btn-outline-warning' : 'btn-outline-success'
+                        className={`btn btn-sm w-100 d-flex align-items-center justify-content-center gap-1 py-2 rounded-3 fw-semibold ${
+                          isAvail
+                            ? 'btn-outline-warning text-dark bg-white border shadow-sm'
+                            : 'btn-success text-white border-0 shadow-sm'
                         }`}
-                        style={{ fontSize: '0.8rem' }}
+                        style={{ fontSize: '0.82rem' }}
                       >
                         {isAvail ? (
                           <>
-                            <Ban size={13} />
-                            <span>Khóa bàn / Đánh dấu có khách</span>
+                            <Ban size={14} />
+                            <span>Khóa bàn / Đã có khách</span>
                           </>
                         ) : (
                           <>
-                            <CheckCircle size={13} />
+                            <CheckCircle size={14} />
                             <span>Mở bàn / Chuyển sang trống</span>
                           </>
                         )}
@@ -148,4 +147,3 @@ const AdminTables = () => {
 };
 
 export default AdminTables;
-

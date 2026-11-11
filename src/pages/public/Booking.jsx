@@ -335,7 +335,7 @@ const Booking = () => {
                 </div>
 
                 {/* Selected summary */}
-                <div className="p-3 rounded-3" style={{ backgroundColor: '#131b26', border: '1px solid var(--border-color)' }}>
+                <div className="p-3 rounded-3" style={{ backgroundColor: '#ffffff', border: '1px solid var(--border-color)' }}>
                   <div className="small text-muted mb-1">Tóm tắt bước 1:</div>
                   <div className="text-heading fw-semibold">
                     📅 Ngày <strong>{date}</strong> vào lúc <strong className="text-warning">{timeSlot}</strong>
@@ -386,7 +386,7 @@ const Booking = () => {
                             className={`p-3 rounded-3 h-100 transition-all ${
                               isSelected
                                 ? 'border-warning shadow-lg'
-                                : 'border-secondary border-opacity-25'
+                                : 'border-light-subtle border-opacity-25'
                             }`}
                             style={{
                               backgroundColor: isSelected ? '#243247' : '#141c28',
@@ -415,7 +415,7 @@ const Booking = () => {
                   </div>
                 )}
 
-                <div className="d-flex justify-content-end mt-4 pt-3 border-top border-secondary border-opacity-25">
+                <div className="d-flex justify-content-end mt-4 pt-3 border-top border-light-subtle border-opacity-25">
                   <button
                     onClick={handleNextStep1}
                     className="btn-primary-custom text-decoration-none py-2 px-4"
@@ -522,7 +522,7 @@ const Booking = () => {
                         <div
                           key={item.food.id}
                           className="d-flex justify-content-between align-items-center p-2 rounded"
-                          style={{ backgroundColor: '#182232', border: '1px solid var(--border-color)' }}
+                          style={{ backgroundColor: '#ffffff', border: '1px solid var(--border-color)' }}
                         >
                           <div>
                             <div className="text-heading small fw-semibold">{item.food.name}</div>
@@ -539,7 +539,7 @@ const Booking = () => {
                   )}
                 </div>
 
-                <div className="pt-3 border-top border-secondary border-opacity-50">
+                <div className="pt-3 border-top border-light-subtle border-opacity-50">
                   <div className="d-flex justify-content-between align-items-center mb-4">
                     <span className="text-muted">Tiền món tạm tính:</span>
                     <span className="fs-5 text-warning fw-bold">{formatVND(totalAmount)}</span>
@@ -651,31 +651,31 @@ const Booking = () => {
                   <h4 className="fw-bold text-heading mb-4">Chi Tiết Đơn Đặt Bàn</h4>
 
                   <div className="d-flex flex-column gap-3 mb-4">
-                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-secondary border-opacity-25">
+                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-light-subtle border-opacity-25">
                       <span>Lịch hẹn:</span>
                       <strong className="text-heading">
                         {timeSlot} - Ngày {date}
                       </strong>
                     </div>
 
-                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-secondary border-opacity-25">
+                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-light-subtle border-opacity-25">
                       <span>Vị trí bàn ăn:</span>
                       <strong className="text-warning">
                         {selectedTable?.code} ({selectedTable?.area})
                       </strong>
                     </div>
 
-                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-secondary border-opacity-25">
+                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-light-subtle border-opacity-25">
                       <span>Số lượng khách:</span>
                       <strong className="text-heading">{guestsCount} người</strong>
                     </div>
 
-                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-secondary border-opacity-25">
+                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-light-subtle border-opacity-25">
                       <span>Món gọi trước ({cartItems.length}):</span>
                       <strong className="text-heading">{formatVND(totalAmount)}</strong>
                     </div>
 
-                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-secondary border-opacity-25">
+                    <div className="d-flex justify-content-between text-muted small pb-2 border-bottom border-light-subtle border-opacity-25">
                       <span>Phí đặt cọc giữ bàn:</span>
                       <strong className="text-success">0đ (Miễn phí)</strong>
                     </div>
@@ -692,7 +692,7 @@ const Booking = () => {
                   </div>
                 </div>
 
-                <div className="d-flex justify-content-between gap-3 pt-3 border-top border-secondary border-opacity-50">
+                <div className="d-flex justify-content-between gap-3 pt-3 border-top border-light-subtle border-opacity-50">
                   <button
                     type="button"
                     onClick={() => setStep(2)}
@@ -726,5 +726,6 @@ const Booking = () => {
 };
 
 export default Booking;
+
 
 
