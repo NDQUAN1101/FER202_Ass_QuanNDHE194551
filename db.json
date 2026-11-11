@@ -51,7 +51,7 @@
       "code": "Bàn S03",
       "area": "Tầng 1 - Sân vườn thoáng đãng",
       "capacity": 6,
-      "status": "Reserved"
+      "status": "Available"
     },
     {
       "id": "tbl-4",
@@ -72,7 +72,7 @@
       "code": "Bàn M03",
       "area": "Tầng 2 - Đại sảnh máy lạnh ấm cúng",
       "capacity": 8,
-      "status": "Reserved"
+      "status": "Available"
     },
     {
       "id": "tbl-7",
@@ -299,7 +299,7 @@
         }
       ],
       "totalAmount": 2010000,
-      "status": "Confirmed",
+      "status": "Completed",
       "createdAt": "2026-10-15T14:20:00.000Z"
     },
     {
@@ -329,7 +329,7 @@
         }
       ],
       "totalAmount": 1320000,
-      "status": "Pending",
+      "status": "Completed",
       "createdAt": "2026-10-16T08:15:00.000Z"
     },
     {
@@ -376,6 +376,50 @@
       "totalAmount": 0,
       "status": "Confirmed",
       "createdAt": "2026-10-16T06:14:15.349Z"
+    },
+    {
+      "id": "KxqFHVJN_hY",
+      "customerName": "quanndhe194551",
+      "phone": "0987654321",
+      "email": "quanndhe194551@fpt.edu.vn",
+      "date": "2026-11-12",
+      "timeSlot": "18:30",
+      "guestsCount": 4,
+      "tableId": "tbl-1",
+      "specialRequest": "",
+      "orderItems": [
+        {
+          "foodId": "food-3",
+          "foodName": "Súp Kem Nấm Truffle Thượng Hạng",
+          "price": 160000,
+          "quantity": 1,
+          "total": 160000
+        },
+        {
+          "foodId": "food-7",
+          "foodName": "Pizza Phô Mai 4 Vị (Quattro Formaggi)",
+          "price": 270000,
+          "quantity": 1,
+          "total": 270000
+        },
+        {
+          "foodId": "food-6",
+          "foodName": "Mì Ý Tôm Hùm Sốt Cà Chua Bisque",
+          "price": 450000,
+          "quantity": 1,
+          "total": 450000
+        },
+        {
+          "foodId": "food-4",
+          "foodName": "Salad Ức Ngỗng Xông Khói Sốt Dâu Tây",
+          "price": 195000,
+          "quantity": 1,
+          "total": 195000
+        }
+      ],
+      "totalAmount": 1075000,
+      "status": "Cancelled",
+      "createdAt": "2026-11-11T01:16:24.870Z"
     }
   ],
   "users": [
@@ -394,29 +438,6 @@
       "password": "123",
       "role": "user",
       "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200&auto=format&fit=crop&q=80"
-    }
-  ],
-  "reviews": [
-    {
-      "id": "rev-1",
-      "author": "Hoàng Nam",
-      "rating": 5,
-      "comment": "Bò Wagyu mềm tan trong miệng, dịch vụ chu đáo và đặt bàn trước rất tiện lợi, đến nơi có bàn sẵn ngay!",
-      "date": "2026-10-10"
-    },
-    {
-      "id": "rev-2",
-      "author": "Minh Châu",
-      "rating": 5,
-      "comment": "Không gian phòng VIP tầng 3 cực kỳ sang trọng, món tráng miệng Tiramisu chuẩn vị Ý.",
-      "date": "2026-10-12"
-    },
-    {
-      "id": "rev-3",
-      "author": "Gia Huy",
-      "rating": 5,
-      "comment": "Đặt bàn online rất nhanh, xem trước được menu và giá cả minh bạch. Rất đáng trải nghiệm!",
-      "date": "2026-10-14"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
