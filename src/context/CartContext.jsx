@@ -1,16 +1,30 @@
 ﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useAuth } from './AuthContext';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState(() => {
-    const saved = localStorage.getItem('ngon_cart');
-    return saved ? JSON.parse(saved) : [];
-  });
+  const { user } = useAuth();
 
+  // Tạo storage key riêng biệt theo từng tài khoản: 'ngon_cart_user@example.com' hoặc 'ngon_cart_guest'
+  const getStorageKey = () => {
+    return user ? `ngon_cart_${user.email}` : 'ngon_cart_guest';
+  };
+
+  const [cartItems, setCartItems] = useState([]);
+
+  // Khi tài khoản đăng nhập thay đổi (hoặc đăng xuất), tự động tải lại giỏ món của tài khoản đó
   useEffect(() => {
-    localStorage.setItem('ngon_cart', JSON.stringify(cartItems));
-  }, [cartItems]);
+    const key = getStorageKey();
+    const saved = localStorage.getItem(key);
+    setCartItems(saved ? JSON.parse(saved) : []);
+  }, [user]);
+
+  // Lưu giỏ món ăn đúng vào tài khoản hiện tại
+  useEffect(() => {
+    const key = getStorageKey();
+    localStorage.setItem(key, JSON.stringify(cartItems));
+  }, [cartItems, user]);
 
   const addToCart = (food, quantity = 1) => {
     setCartItems(prev => {
@@ -44,6 +58,7 @@ export const CartProvider = ({ children }) => {
 
   const clearCart = () => {
     setCartItems([]);
+    localStorage.removeItem(getStorageKey());
   };
 
   const totalAmount = cartItems.reduce(
@@ -71,4 +86,3 @@ export const CartProvider = ({ children }) => {
 };
 
 export const useCart = () => useContext(CartContext);
-
