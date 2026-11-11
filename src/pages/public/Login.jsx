@@ -126,10 +126,10 @@ const Login = () => {
               <div>
                 <label className="form-label small fw-semibold text-secondary">Họ và tên</label>
                 <div className="position-relative">
-                  <User size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)' }} />
+                  <User size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)', zIndex: 3 }} />
                   <input
                     type="text"
-                    className="form-control form-control-custom ps-5"
+                    className="form-control form-control-custom input-with-icon"
                     placeholder="Nguyễn Văn A"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
@@ -141,10 +141,10 @@ const Login = () => {
             <div>
               <label className="form-label small fw-semibold text-secondary">Địa chỉ Email</label>
               <div className="position-relative">
-                <Mail size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)' }} />
+                <Mail size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)', zIndex: 3 }} />
                 <input
                   type="email"
-                  className="form-control form-control-custom ps-5"
+                  className="form-control form-control-custom input-with-icon"
                   placeholder="name@example.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -155,10 +155,10 @@ const Login = () => {
             <div>
               <label className="form-label small fw-semibold text-secondary">Mật khẩu</label>
               <div className="position-relative">
-                <Lock size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)' }} />
+                <Lock size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)', zIndex: 3 }} />
                 <input
                   type="password"
-                  className="form-control form-control-custom ps-5"
+                  className="form-control form-control-custom input-with-icon"
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -170,10 +170,10 @@ const Login = () => {
               <div>
                 <label className="form-label small fw-semibold text-secondary">Xác nhận mật khẩu</label>
                 <div className="position-relative">
-                  <Lock size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)' }} />
+                  <Lock size={18} className="position-absolute text-muted" style={{ top: '50%', left: '14px', transform: 'translateY(-50%)', zIndex: 3 }} />
                   <input
                     type="password"
-                    className="form-control form-control-custom ps-5"
+                    className="form-control form-control-custom input-with-icon"
                     placeholder="••••••••"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
@@ -232,4 +232,3 @@ const Login = () => {
 };
 
 export default Login;
-
