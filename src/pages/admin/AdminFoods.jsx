@@ -178,8 +178,8 @@ const AdminFoods = () => {
                           onClick={() => handleToggleStatus(food)}
                           className={`btn btn-sm rounded-pill px-3 py-1 fw-semibold small ${
                             food.status === 'Còn hàng'
-                              ? 'btn-success bg-opacity-25 text-success border border-success'
-                              : 'btn-danger bg-opacity-25 text-danger border border-danger'
+                              ? 'badge-green border-0 text-success fw-bold'
+                              : 'badge bg-danger text-white border-0 py-2 px-3 fw-bold'
                           }`}
                         >
                           {food.status === 'Còn hàng' ? 'Còn Hàng' : 'Hết Món'}
@@ -229,7 +229,7 @@ const AdminFoods = () => {
         >
           <div
             className="p-4 rounded-4 animate-fade-in"
-            style={{ maxWidth: '420px', width: '100%', backgroundColor: '#131b26', border: '1px solid var(--border-color)' }}
+            style={{ maxWidth: '420px', width: '100%', backgroundColor: '#ffffff', border: '1px solid var(--border-color)' }}
           >
             <h5 className="text-heading fw-bold mb-2">Xác Nhận Xóa Món Ăn</h5>
             <p className="text-muted small mb-4">
@@ -257,5 +257,6 @@ const AdminFoods = () => {
 };
 
 export default AdminFoods;
+
 
 
